@@ -29,10 +29,3 @@ config/secrets.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
-
-# Non-default
-
-/config/secrets.yml
-/db/*.sqlite3
-/log/*.log
-/tmp/**/*
