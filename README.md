@@ -69,6 +69,7 @@ music.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
+- [ ] Typeahead search bar
 - [ ] Keyboard controls
 - [ ] Follow users to see their posted songs in your stream
 - [ ] Like/reblog/play counts on song listings
@@ -76,7 +77,6 @@ music.
 - [ ] Multiple sessions/session management
 - [ ] User avatars, album art
 - [ ] Song/artist search
-- [ ] Typeahead search bar
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
