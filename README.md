@@ -23,7 +23,7 @@ SoundPile is a clone of SoundCloud built on Rails and Backbone. Users can:
 * [View Wireframes][views]
 * [DB schema][schema]
 
-[views]: ./docs/views.md
+[views]: ./docs/wireframes.jpg
 [schema]: ./docs/schema.md
 
 ## Implementation Timeline
