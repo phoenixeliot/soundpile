@@ -32,8 +32,8 @@ user_id     | integer   | not null, foreign key (references users)
 track_id    | string    | not null, foreign key (references tracks)
 
 ## follows
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references users)
-follower_id | integer   | not null, foreign key (references users)
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+followed_user_id | integer   | not null, foreign key (references users)
+follower_id      | integer   | not null, foreign key (references users)
