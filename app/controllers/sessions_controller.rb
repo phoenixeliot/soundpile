@@ -12,13 +12,13 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash[:errors] = ["Invalid login."]
-      redirect_to login_url
+      redirect_to signin_url
     end
   end
 
   def destroy
     log_out
-    redirect_to login_url
+    redirect_to signin_url
   end
 
   private
