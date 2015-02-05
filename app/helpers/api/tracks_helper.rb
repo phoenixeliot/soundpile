@@ -1,2 +1,2 @@
-module TracksHelper
+module Api::TracksHelper
 end
