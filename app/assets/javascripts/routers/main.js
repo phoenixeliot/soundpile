@@ -1,4 +1,4 @@
-SoundPile.Routers.Main = Backbone.Router.extend({
+SoundPile.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'tracks/:id': 'showTrack'
