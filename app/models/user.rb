@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :owned_tracks
+  has_many :owned_tracks, class_name: 'Track', foreign_key: :owner_id
+  has_many :shares, foreign_key: :owner_id
+  has_many :shared_tracks, through: :shares
 
   attr_reader :password
 

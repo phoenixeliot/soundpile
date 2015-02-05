@@ -29,3 +29,6 @@
 * SongShow
 
 ## Gems/Libraries
+paperclip
+aws-sdk
+figaro

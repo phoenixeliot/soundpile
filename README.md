@@ -11,7 +11,7 @@ SoundPile is a clone of SoundCloud built on Rails and Backbone. Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [ ] View songs individually
+- [x] View songs individually
 - [ ] Play songs (with ajax player)
 - [ ] View index of all songs
 - [ ] Share songs
@@ -41,7 +41,8 @@ ensuring that everything works before moving on to phase 2.
 I will add API routes to serve profile and song data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
 phase, users will be able to view songs alone or on a user's profile page, and
-play them with a barebones embedded mp3.
+play them with a barebones embedded mp3. I will use Amazon S3 to store the audio
+files.
 
 [Details][phase-two]
 
