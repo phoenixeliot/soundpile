@@ -18,6 +18,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'
