@@ -7,5 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.create!([
-  { username: 'peter', password: 'eeeeee', display_name: 'Felix' }
+  { username: 'peter', password: 'eeeeee', display_name: 'Felix' },
+  { username: 'elliott', password: 'ffffff', display_name: 'Wind Fish' },
+])
+
+peter, elliott, _ = User.all.to_a
+
+tracks = Track.create!([
+  { title: 'Dragonette - Hello (Wind Fish Remix)', owner_id: elliott.id }
 ])

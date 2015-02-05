@@ -16,6 +16,8 @@ gem 'newrelic_rpm'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'byebug'
