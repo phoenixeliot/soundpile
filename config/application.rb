@@ -29,7 +29,7 @@ module SoundPile
     config.paperclip_defaults = {
       storage: :s3,
       url: ':s3_domain_url',
-      path: '/tracks/:id_:basename.:extension',
+      path: '/tracks/:basename.:extension',
       s3_permissions: :public_read,
       s3_credentials: {
         bucket: ENV['S3_BUCKET_NAME'],

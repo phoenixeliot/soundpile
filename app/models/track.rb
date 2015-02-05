@@ -6,7 +6,7 @@ class Track < ActiveRecord::Base
 
   has_attached_file :audio
   validates_attachment_content_type :audio,
-        content_type: %w[audio/mpeg audio/ogg audio/webm]
+        content_type: %w[audio/mpeg audio/ogg audio/webm audio/x-aiff audio/aiff application/octet-stream]
 
 
 

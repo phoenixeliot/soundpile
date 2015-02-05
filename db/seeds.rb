@@ -14,5 +14,32 @@ users = User.create!([
 peter, elliott, _ = User.all.to_a
 
 tracks = Track.create!([
-  { title: 'Dragonette - Hello (Wind Fish Remix)', owner_id: elliott.id }
+  {
+    title: 'Dragonette - Hello (Wind Fish Remix)',
+    owner_id: elliott.id,
+    audio_file_name: 'sky_palaces.mp3', #might want to rename this
+    audio_content_type: "audio/mpeg",
+    audio_file_size: 4707575
+  },
+  {
+    title: 'lontalius - i guess itsss (Wind Fish Edit)',
+    owner_id: elliott.id,
+    audio_file_name: 'i_guess_itsss.mp3',
+    audio_content_type: "audio/mpeg",
+    audio_file_size: 2784861
+  },
+  {
+    title: 'Airloop',
+    owner_id: elliott.id,
+    audio_file_name: 'LANDR-airloop.mp3',
+    audio_content_type: "audio/mpeg",
+    audio_file_size: 5309543
+  },
+  {
+    title: 'Adelyn Rose - It Means Shadow (Wind Fish Remix)',
+    owner_id: elliott.id,
+    audio_file_name: 'it_means_shadow.mp3',
+    audio_content_type: "audio/mpeg",
+    audio_file_size: 4610337
+  }
 ])
