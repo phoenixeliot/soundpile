@@ -3,7 +3,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
   },
 
-  template: JST.test,
+  template: JST.show,
 
   index: function () {
     this.$el.html(this.template({ tracks: ["track1", "track2"] }));
@@ -11,6 +11,11 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
   showTrack: function (track_id) {
     //Swap out everything but the nav and player, render the track page
-    this.$el.html(this.template({  }));
+    var track = new SoundPile.Models.Track({ id: track_id });
+    track.fetch({
+      success: function (track) {
+        this.$el.html(this.template({ track: track })); //TODO
+      }.bind(this)
+    });
   }
 });

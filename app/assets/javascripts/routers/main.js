@@ -6,7 +6,8 @@ SoundPile.Routers.Main = Backbone.Router.extend({
 
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    var view = SoundPile.view = new SoundPile.Views.Main();
+    // var tracks = new SoundPile.Collections.Tracks();
+    var view = SoundPile.view = new SoundPile.Views.Main({ });
     this.$rootEl.html(view.$el);
   },
 

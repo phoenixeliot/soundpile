@@ -2,3 +2,7 @@
 
 <p><%= track.get('title') %></p>
 <p><%= track.get('artist') %></p>
+
+<audio controls>
+  <source src="<%= track.get('audio_url') %>" type="audio/mpeg">
+</audio>

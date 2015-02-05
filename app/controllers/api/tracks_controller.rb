@@ -5,7 +5,7 @@ class Api::TracksController < ApplicationController
   end
 
   def show
-    track = Track.find(params[:id])
-    render json: track
+    @track = Track.find(params[:id])
+    render :show
   end
 end
