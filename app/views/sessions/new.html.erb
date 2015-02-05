@@ -1,27 +1,34 @@
 <% if current_user.nil? %>
 
-  Sign In
+  <form class="credentials" action="<%= signin_url %>" method="post">
+    <h2>Sign in!</h2>
 
-  <form action="<%= signin_url %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <label for="user_username">Username:</label>
-    <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>">
+    <div class="username">
+      <label for="user_username">Username:</label>
+      <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>">
+    </div>
 
-    <label for="user_password">Password:</label>
-    <input type="password" id="user_password" name="user[password]">
+    <div class="password">
+      <label for="user_password">Password:</label>
+      <input type="password" id="user_password" name="user[password]">
+    </div>
 
-    <input type="submit" value="Sign In">
+    <div class="submit">
+      <input type="submit" value="Sign In">
+    </div>
   </form>
 
 <% else %>
 
-  <p>
-    You are signed in as <%= current_user.display_name %> (<%= current_user.username %>)!
-  </p>
-
-  <p>
-    Not you? <a href="/logout">Sign out</a>
-  </p>
+  <div class="already-signed-in">
+    <p>
+      You are signed in as <%= current_user.display_name %> (<%= current_user.username %>)!
+    </p>
+    <p>
+      Not you? <a href="<%= signout_url %>">Sign out</a>
+    </p>
+  </div>
 
 <% end %>

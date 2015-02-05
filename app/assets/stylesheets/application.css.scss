@@ -21,3 +21,48 @@
 body {
   padding-top: 52px; // Start below the navbar
 }
+
+form.credentials {
+  @extend .form-horizontal;
+  @include make-sm-column(4);
+  @include make-sm-column-offset(4);
+
+  h2 {
+    text-align: center;
+  }
+
+  .username, .password, .submit {
+    @extend .form-group;
+    @extend .row;
+  }
+
+  .username, .password {
+    label {
+      @include make-sm-column(4);
+      @extend .control-label;
+    }
+
+    input {
+      @include make-sm-column(8);
+      @extend .form-control;
+    }
+  }
+
+  .submit {
+    input {
+      @include make-sm-column(4);
+      @include make-sm-column-offset(4);
+
+      @extend .form-control;
+      @extend .btn;
+      @extend .btn-success;
+    }
+  }
+}
+
+.already-signed-in {
+  @include make-sm-column(4);
+  @include make-sm-column-offset(4);
+
+  padding-top: 30%;
+}
