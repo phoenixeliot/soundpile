@@ -7,17 +7,18 @@ SoundPile.Views.SharesIndex = Backbone.CompositeView.extend({
 
   render: function () {
     var shares = this.collection;
-    shares.fetch({
-      success: function (shares) {
-        this.$el.html(this.template({ shares: shares })); //TODO
+    console.log(shares);
+    //TODO: Fetch before render, then listen for the fetch to complete and re-render
+    //TODO: Plan out how to render/fetch subviews
 
-        //TODO: memoize these views! This could be a memory leak. (or just really slow)
-        shares.each(function (share) {
-          var shareItemView = new SoundPile.Views.ShareItem({ model: share });
-          this.addSubview('.share-item', shareItemView);
-        }.bind(this));
-      }.bind(this)
-    });
+    this.$el.html(this.template({ shares: shares })); //TODO
+
+    //TODO: memoize these views! This could be a memory leak. (or just really slow)
+    shares.each(function (share) {
+      var shareItemView = new SoundPile.Views.ShareItem({ model: share });
+      this.addSubview('.shares-list', shareItemView);
+    }.bind(this));
+
     return this;
   },
 });

@@ -3,10 +3,11 @@ class Api::SharesController < ApplicationController
     user_id = params[:user_id]
     if user_id
       user = User.find(user_id)
-      @shares = Share.where(user_id: user_id)
+      @shares = user.shares#Share.where(owner_id: user_id) #TODO: fix this inconsistency
     else
       @shares = Share.all
     end
+    # debugger
     render :index
   end
 

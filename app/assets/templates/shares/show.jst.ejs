@@ -1,5 +1,7 @@
-Shared by: <%= share.owner_name %>
+<% if(share.get('is_reshared')) { %>
+  Shared by: <%= share.get('owner_name') %>
+<% } %>
 
-<% var track = share.track() %>
-<%= track.get('title') %>
-<%= track.get('artist') %>
+<div class="track-item">
+
+</div>

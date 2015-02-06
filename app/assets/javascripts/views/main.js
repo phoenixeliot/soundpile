@@ -21,7 +21,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
   showUser: function (user_id) {
     //Swap out everything but the nav and player, render the user page
-    var shares = new SoundPile.Collections.Shares();
+    // var shares = new SoundPile.Collections.Shares();
     var user = new SoundPile.Models.User({ id: user_id });
 
     var userShowView = new SoundPile.Views.UserShow({ model: user });

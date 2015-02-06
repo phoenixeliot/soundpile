@@ -6,16 +6,19 @@ SoundPile.Views.UserShow = Backbone.CompositeView.extend({
 
   render: function () {
     // Defers most of the work to the TrackItem view
-    var shares = new SoundPile.Collections.Shares();
+    //TODO: memoize view
+    // var shares = new SoundPile.Collections.Shares();
+    var user = this.model;
+    var shares = user.shares();
+    console.log(shares);
     shares.fetch({
-      data: { owner_id: this.model.id },
+      data: { user_id: this.model.id },
       success: function (shares) {
         this.$el.html(this.template({ user: this.model }));
 
         //TODO: memoize this view! This could be a memory leak. (or just really slow)
         var sharesIndex = new SoundPile.Views.SharesIndex({ collection: shares });
-        this.$('.shares-list').html(sharesIndex.render().$el);
-        this.addSubview('shares-list', sharesIndex);
+        this.addSubview('.shares-index', sharesIndex);
       }.bind(this)
     });
     return this;
