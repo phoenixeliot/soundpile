@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get  '/signout', to: 'sessions#destroy'
 
   namespace :api, defaults: { format: :json } do
-    resources :tracks
+    resources :users,  only: [:index, :show]
+    resources :tracks, only: [:show]
+    resources :shares, only: [:index, :show]
   end
 end

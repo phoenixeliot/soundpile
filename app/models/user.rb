@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :owned_tracks, class_name: 'Track', foreign_key: :owner_id
   has_many :shares, foreign_key: :owner_id
-  has_many :shared_tracks, through: :shares
+  has_many :shared_tracks, through: :shares, source: :track
 
   attr_reader :password
 

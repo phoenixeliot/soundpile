@@ -11,7 +11,7 @@ users = User.create!([
   { username: 'elliott', password: 'ffffff', display_name: 'Wind Fish' },
 ])
 
-peter, elliott, _ = User.all.to_a
+peter, elliott, _ = users
 
 tracks = Track.create!([
   {
@@ -42,4 +42,19 @@ tracks = Track.create!([
     audio_content_type: "audio/mpeg",
     audio_file_size: 4610337
   }
+])
+
+shares = Share.create!([
+  {
+    owner: elliott,
+    track: tracks[1]
+  },
+  {
+    owner: elliott,
+    track: tracks[2]
+  },
+  {
+    owner: elliott,
+    track: tracks[3]
+  },
 ])
