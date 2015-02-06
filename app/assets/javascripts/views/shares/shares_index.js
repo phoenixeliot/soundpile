@@ -1,24 +1,23 @@
 SoundPile.Views.SharesIndex = Backbone.CompositeView.extend({
-  initialize: function () {
-
-  },
-
   template: JST["shares/index"],
 
+  initialize: function (options) {
+    this.collection.each(this.addShareItem.bind(this));
+    this.listenTo(this.collection, 'add', this.addShareItem);
+  },
+
+  addShareItem: function (share) {
+    console.log(share);
+    var shareItemView = new SoundPile.Views.ShareItem({ model: share });
+    this.addSubview('.shares-list', shareItemView);
+  },
+
   render: function () {
-    var shares = this.collection;
-    console.log(shares);
+    //attach subviews in render
     //TODO: Fetch before render, then listen for the fetch to complete and re-render
     //TODO: Plan out how to render/fetch subviews
-
-    this.$el.html(this.template({ shares: shares })); //TODO
-
-    //TODO: memoize these views! This could be a memory leak. (or just really slow)
-    shares.each(function (share) {
-      var shareItemView = new SoundPile.Views.ShareItem({ model: share });
-      this.addSubview('.shares-list', shareItemView);
-    }.bind(this));
-
+    this.$el.html(this.template());
+    this.attachSubviews();
     return this;
   },
 });

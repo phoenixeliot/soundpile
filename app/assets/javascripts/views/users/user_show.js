@@ -1,5 +1,12 @@
 SoundPile.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function (options) {
+    var user = this.model;
+    this.addSharesIndex(user.shares());
+  },
+
+  addSharesIndex: function (shares) {
+    var sharesIndex = new SoundPile.Views.SharesIndex({ collection: shares });
+    this.addSubview('.shares-index', sharesIndex);
   },
 
   template: JST["users/show"],
@@ -10,17 +17,9 @@ SoundPile.Views.UserShow = Backbone.CompositeView.extend({
     // var shares = new SoundPile.Collections.Shares();
     var user = this.model;
     var shares = user.shares();
-    console.log(shares);
-    shares.fetch({
-      data: { user_id: this.model.id },
-      success: function (shares) {
-        this.$el.html(this.template({ user: this.model }));
-
-        //TODO: memoize this view! This could be a memory leak. (or just really slow)
-        var sharesIndex = new SoundPile.Views.SharesIndex({ collection: shares });
-        this.addSubview('.shares-index', sharesIndex);
-      }.bind(this)
-    });
+    this.$el.html(this.template({ user: this.model }));
+    this.attachSubviews();
     return this;
   },
+
 });

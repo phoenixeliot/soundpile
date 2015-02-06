@@ -34,3 +34,4 @@ bower.json
 /config/application.yml
 
 TODO
+app/assets/javascripts/utils/dev_only.js
