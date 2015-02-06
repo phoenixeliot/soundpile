@@ -8,7 +8,3 @@ window.SoundPile = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  SoundPile.initialize();
-});

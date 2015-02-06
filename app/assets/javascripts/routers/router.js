@@ -16,14 +16,10 @@ SoundPile.Routers.Router = Backbone.Router.extend({
   },
 
   showTrack: function (track_id) {
-    // Is this called when you navigate to a URL -or- click a link?
-    // TODO: Think this through, finish this code
     SoundPile.view.showTrack(track_id);
   },
 
   showUser: function (user_id) {
-    // Is this called when you navigate to a URL -or- click a link?
-    // TODO: Think this through, finish this code
     SoundPile.view.showUser(user_id);
   },
 });
