@@ -1,6 +1,18 @@
 SoundPile.Views.Main = Backbone.CompositeView.extend({
   initialize: function () {
+    var persistentPlayerView = new SoundPile.Views.PersistentPlayer({
+      model: new SoundPile.Models.Track(),
+      //collection: TODO: some playlist stuff (here it should be empty?)
+    });
+    this.addSubview(".persistent-player", persistentPlayerView);
+  },
 
+  template: JST["main"],
+  //Note: This should not be called regularly! That would break the player.
+  render: function () {
+    this.$el.html(this.template());
+    this.attachSubviews(); //TODO: not sure if this goes here
+    return this;
   },
 
   index: function () {
@@ -26,9 +38,18 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
     user.fetch({
       success: function (user) {
-        this.$el.html(userShowView.render().$el);
+        this.removeSubview(".page");
+        this.addSubview(".page", userShowView);
+        console.log(userShowView.$el.html());
       }.bind(this)
     });
     return this;
+  },
+
+  //TODO: do I even need this if I'm using add/removeSubview?
+  _swapView: function (view) {
+    this.currentView && this.currentView.remove();
+    this.currentView = view;
+    this.$(".page").html(view.render().$el);
   },
 });

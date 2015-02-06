@@ -22,6 +22,8 @@ body {
   padding-top: 52px; // Start below the navbar
 }
 
+/* Signin/Signup */
+
 form.credentials {
   @extend .form-horizontal;
   @include make-sm-column(4);
@@ -65,4 +67,12 @@ form.credentials {
   @include make-sm-column-offset(4);
 
   padding-top: 30%;
+}
+
+/* Persistent Player */
+
+div.persistent-player {
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }

@@ -1,0 +1,6 @@
+<h4><%= track.get('title') %></h4>
+<h4><%= track.get('artist') %></h4>
+
+<audio controls>
+  <source src="<%= track.get('audio_url') %>" type="audio/mpeg">
+</audio>

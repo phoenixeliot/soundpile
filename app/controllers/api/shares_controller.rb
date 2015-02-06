@@ -7,7 +7,6 @@ class Api::SharesController < ApplicationController
     else
       @shares = Share.all
     end
-    # debugger
     render :index
   end
 
