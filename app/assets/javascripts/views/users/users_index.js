@@ -1,5 +1,4 @@
 SoundPile.Views.UsersIndex = Backbone.View.extend({
-
-  template: JST['users/index']
+  template: JST['users/index'],
 
 });

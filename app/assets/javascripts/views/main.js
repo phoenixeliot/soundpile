@@ -4,7 +4,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
   },
 
   index: function () {
-    this.$el.html(this.template({ tracks: ["track1", "track2"] })); //TODO
+    this.$el.html("I'll be an index, some day."); //TODO
     return this;
   },
 
@@ -21,18 +21,13 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
   showUser: function (user_id) {
     //Swap out everything but the nav and player, render the user page
-    // var shares = new SoundPile.Collections.Shares();
     var user = new SoundPile.Models.User({ id: user_id });
-
     var userShowView = new SoundPile.Views.UserShow({ model: user });
 
     user.fetch({
       success: function (user) {
         this.$el.html(userShowView.render().$el);
       }.bind(this)
-      // success: function (user) {
-      //   this.$el.html(JST["users/show"]({ user: user })); //TODO
-      // }.bind(this)
     });
     return this;
   },

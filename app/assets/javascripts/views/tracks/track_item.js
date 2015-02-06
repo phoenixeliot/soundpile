@@ -1,18 +1,12 @@
 SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
-  initialize: function () {
-
-  },
-
   template: JST["tracks/show"],
 
+  initialize: function () {
+  },
+
   render: function () {
-    // Defers most of the work to the TrackItem view
     var track = this.model;
-    track.fetch({
-      success: function (track) {
-        this.$el.html(this.template({ track: track })); //TODO
-      }.bind(this)
-    });
+    this.$el.html(this.template({ track: this.model }));
     return this;
   },
 });

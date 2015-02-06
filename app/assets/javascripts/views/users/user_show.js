@@ -1,4 +1,6 @@
 SoundPile.Views.UserShow = Backbone.CompositeView.extend({
+  template: JST["users/show"],
+
   initialize: function (options) {
     var user = this.model;
     this.addSharesIndex(user.shares());
@@ -9,14 +11,7 @@ SoundPile.Views.UserShow = Backbone.CompositeView.extend({
     this.addSubview('.shares-index', sharesIndex);
   },
 
-  template: JST["users/show"],
-
   render: function () {
-    // Defers most of the work to the TrackItem view
-    //TODO: memoize view
-    // var shares = new SoundPile.Collections.Shares();
-    var user = this.model;
-    var shares = user.shares();
     this.$el.html(this.template({ user: this.model }));
     this.attachSubviews();
     return this;
