@@ -21,7 +21,7 @@
   <div class="sm2-inline-element sm2-inline-status">
 
    <div class="sm2-playlist">
-    <div class="sm2-playlist-target"><ul class="sm2-playlist-bd"><li><b>SonReal</b> - LA (Prod. Chin Injetti)<span class="label">Explicit</span></li></ul></div>
+    <div class="sm2-playlist-target"><ul class="sm2-playlist-bd"><li><b><%= track.get('artist') %></b> - <%= track.escape('title') %><span class="label">Explicit</span></li></ul></div>
    </div>
 
    <div class="sm2-progress">
@@ -85,13 +85,13 @@
 
   <div class="sm2-playlist-wrapper">
     <ul class="sm2-playlist-bd">
-     <li class="selected"><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20LA%20%28Prod%20Chin%20Injetti%29.mp3"><b>SonReal</b> - LA (Prod. Chin Injetti)<span class="label">Explicit</span></a></li>
-     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20Let%20Me%20%28Prod%202oolman%29.mp3"><b>SonReal</b> - Let Me <span class="label">Explicit</span></a></li>
-     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20People%20Asking.mp3"><b>SonReal</b> - People Asking <span class="label">Explicit</span></a></li>
-     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20Already%20There%20Remix%20ft.%20Rich%20Kidd%2C%20Saukrates.mp3"><b>SonReal</b> - Already There Remix ft. Rich Kidd, Saukrates <span class="label">Explicit</span></a></li>
+     <li class="selected"><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20LA%20%28Prod%20Chin%20Injetti%29.mp3"><b><%= track.get('artist') %></b> - <%= track.escape('title') %><span class="label">Explicit</span></a></li>
+     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20Let%20Me%20%28Prod%202oolman%29.mp3"><b><%= track.get('artist') %></b> - Let Me <span class="label">Explicit</span></a></li>
+     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20People%20Asking.mp3"><b><%= track.get('artist') %></b> - People Asking <span class="label">Explicit</span></a></li>
+     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20Already%20There%20Remix%20ft.%20Rich%20Kidd%2C%20Saukrates.mp3"><b><%= track.get('artist') %></b> - Already There Remix ft. Rich Kidd, Saukrates <span class="label">Explicit</span></a></li>
      <li><a href="http://freshly-ground.com/data/audio/sm2/The%20Fugitives%20-%20Graffiti%20Sex.mp3"><b>The Fugitives</b> - Graffiti Sex</a></li>
      <li><a href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Seven%20Or%20Eight%20Days.mp3"><b>Adrian Glynn</b> - Seven Or Eight Days</a></li>
-     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20I%20Tried.mp3"><b>SonReal</b> - I Tried</a></li>
+     <li><a href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20I%20Tried.mp3"><b><%= track.get('artist') %></b> - I Tried</a></li>
      <li><a href="http://freshly-ground.com/data/audio/mpc/20060826%20-%20Armstrong.mp3">Armstrong Beat</a></li>
      <li><a href="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3">Untitled Groove</a></li>
      <li><a href="http://freshly-ground.com/data/audio/sm2/birds-in-kauai-128kbps-aac-lc.mp4">Birds In Kaua'i (AAC)</a></li>
