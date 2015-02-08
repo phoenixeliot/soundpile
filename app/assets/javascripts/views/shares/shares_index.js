@@ -7,7 +7,6 @@ SoundPile.Views.SharesIndex = Backbone.CompositeView.extend({
   },
 
   addShareItem: function (share) {
-    console.log(share);
     var shareItemView = new SoundPile.Views.ShareItem({ model: share });
     this.addSubview('.shares-list', shareItemView);
   },

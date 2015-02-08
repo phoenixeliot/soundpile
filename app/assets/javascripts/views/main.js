@@ -4,6 +4,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
       model: new SoundPile.Models.Track(),
       //collection: TODO: some playlist stuff (here it should be empty?)
     });
+    SoundPile.player = persistentPlayerView;
     this.addSubview(".persistent-player", persistentPlayerView);
   },
 
@@ -40,7 +41,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
       success: function (user) {
         this.removeSubview(".page");
         this.addSubview(".page", userShowView);
-        console.log(userShowView.$el.html());
+        //TODO: Make a replaceSubview?
       }.bind(this)
     });
     return this;

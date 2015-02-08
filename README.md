@@ -49,7 +49,8 @@ files.
 ### Phase 3: Persistent Player (~2 days)
 I plan on creating a persistent player view which will remain on the page even
 when clicking any links, without interrupting playback. At this stage the player
-will have only play and pause functionality.
+will have only play and pause functionality. I will be using SoundManager2 for
+audio playback.
 
 [Details][phase-three]
 

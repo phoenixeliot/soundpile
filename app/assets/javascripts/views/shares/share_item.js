@@ -3,7 +3,7 @@ SoundPile.Views.ShareItem = Backbone.CompositeView.extend({
 
   initialize: function () {
     var share = this.model;
-    var trackItemView = new SoundPile.Views.TrackItem({ model: share.track() });
+    var trackItemView = new SoundPile.Views.TrackItem({ model: share.get("track") });
     this.addSubview('.track-item', trackItemView);
   },
 

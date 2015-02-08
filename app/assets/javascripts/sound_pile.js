@@ -8,3 +8,15 @@ window.SoundPile = {
     Backbone.history.start();
   }
 };
+
+soundManager.setup({
+  url: "/assets/flash/",
+  // preferFlash: false,
+  onready: function () {
+    //Nothing to do, yet.
+  },
+
+  ontimeout: function () {
+    console.log("SoundManager timed out. Oh no!");
+  },
+});

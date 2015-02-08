@@ -12,7 +12,7 @@ SoundPile.Models.User = Backbone.Model.extend({
 
   shares: function () {
     if(!this._shares) {
-      this._shares = new SoundPile.Collections.Shares();
+      this._shares = new SoundPile.Collections.Shares([], { parse: true });
     }
     return this._shares;
   }

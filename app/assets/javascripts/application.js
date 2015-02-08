@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require soundmanager2
 //= require sound_pile
 //= require_tree ../templates
 //= require_tree ./utils
