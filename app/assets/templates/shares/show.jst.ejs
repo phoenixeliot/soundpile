@@ -1,5 +1,5 @@
-<% if(share.get('is_reshared')) { %>
-  Shared by: <%= share.get('owner_name') %>
+<% if(share.escape('is_reshared')) { %>
+  Shared by: <%= share.escape('owner_name') %>
 <% } %>
 
 <div class="track-item">
