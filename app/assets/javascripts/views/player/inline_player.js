@@ -1,3 +1,10 @@
+/*
+This view doesn't actually play anything--it offloads most of the work to the
+PersistentPlayer, and updates its own status based on events from the
+PersistentPlayer. Clicking on this tells the PersistentPlayer to update itself
+(eg, to seek to a new position or play/pause)
+*/
+
 SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   template: JST["player/inline_player"],
 
