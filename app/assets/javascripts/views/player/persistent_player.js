@@ -39,14 +39,16 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
       // Don't toggle button if there was nothing to play
       this.$(".play-btn").hide();
       this.$(".pause-btn").show();
+      this.$(".track-info").addClass("playing");
     }
   },
 
   pause: function (event) {
     event && event.preventDefault();
+    this.model.audio.pause();
     this.$(".play-btn").show();
     this.$(".pause-btn").hide();
-    this.model.audio.pause();
+    this.$(".track-info").removeClass("playing");
   },
 
   previous: function (event) {

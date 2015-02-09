@@ -1,0 +1,81 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Persistent Player */
+
+//TODO: Fix spacing when window is wide (shouldn't be in far corner)
+.persistent-player {
+  box-sizing: border-box;
+
+  /* @extend .navbar; */
+  /* @extend .navbar-inverse; */
+  @extend .list-inline;
+  background: linear-gradient(rgb(56, 56, 56), rgb(36, 36, 36));
+  border-radius: 3px 3px 0 0;
+
+  position: fixed;
+  min-height: 45px;
+  height: 45px;
+  border: 0px;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
+
+  .left-controls {
+    float: left;
+  }
+
+  .right-controls {
+    float: right;
+    margin-right: 0;
+  }
+
+  .left-controls, .right-controls {
+    list-style: none;
+    padding-left: 3px;
+    @extend .clearfix;
+    @extend .navbar-nav;
+
+    .pause-btn {
+      display: none;
+    }
+
+    li {
+      position: relative;
+      display: block;
+
+      a {
+        position: relative;
+        display: block;
+
+        color: rgb(215, 215, 215);
+
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 12.5px;
+        padding-bottom: 12.5px;
+      }
+    }
+
+    .track-info {
+      width: 150px;
+
+      a {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: rgb(153, 153, 153); //while paused
+      }
+    }
+
+    .track-info.playing a {
+      color: rgb(204, 204, 204);
+    }
+  }
+
+  .glyphicon-play {
+    /* height: 20px; */
+    /* width: 20px; */
+    //TODO: Make play button a little larger
+  }
+}
