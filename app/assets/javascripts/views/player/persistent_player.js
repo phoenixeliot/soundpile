@@ -35,9 +35,11 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
   //TODO: Should this be the same function for click handling and code calls?
   play: function (event) {
     event && event.preventDefault();
-    this.$(".play-btn").hide();
-    this.$(".pause-btn").show();
-    this.model.audio.play();
+    if (this.model.audio.play()) {
+      // Don't toggle button if there was nothing to play
+      this.$(".play-btn").hide();
+      this.$(".pause-btn").show();
+    }
   },
 
   pause: function (event) {
@@ -48,10 +50,12 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
   },
 
   previous: function (event) {
+    event && event.preventDefault();
     console.log("TODO: Do something!");
   },
 
   next: function (event) {
+    event && event.preventDefault();
     console.log("TODO: Do something!");
   },
 });
