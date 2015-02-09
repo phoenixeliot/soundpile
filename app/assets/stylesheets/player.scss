@@ -1,6 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* Inline Player */
+
+.position-bar {
+  display: block;
+  height: 10px;
+  background-color: red;
+}
+
 /* Persistent Player */
 
 //TODO: Fix spacing when window is wide (shouldn't be in far corner)
