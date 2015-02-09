@@ -1,3 +1,8 @@
+/*
+This view contains the inline player subview, and buttons/links about a track
+that are not part of the inline player
+*/
+
 SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
   template: JST["tracks/show"],
 
