@@ -16,7 +16,7 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
 
   play: function (event) {
     event.preventDefault();
-    SoundPile.player.play({
+    SoundPile.player.start({
       model: this.model,
       //collection: the playlist for the page
     });

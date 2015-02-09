@@ -17,7 +17,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
   },
 
   index: function () {
-    this.$el.html("I'll be an index, some day."); //TODO
+    this.$(".page").html("I'll be an index, some day."); //TODO
     return this;
   },
 
@@ -26,7 +26,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
     var track = new SoundPile.Models.Track({ id: track_id });
     track.fetch({
       success: function (track) {
-        this.$el.html(JST["tracks/show"]({ track: track })); //TODO
+        this.$(".page").html(JST["tracks/show"]({ track: track })); //TODO
       }.bind(this)
     });
     return this;
