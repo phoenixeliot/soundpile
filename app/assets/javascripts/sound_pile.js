@@ -10,7 +10,7 @@ window.SoundPile = {
 };
 
 soundManager.setup({
-  url: "/assets/swf/",
+  url: "/assets",
   preferFlash: false,
   onready: function () {
     //Nothing to do, yet.

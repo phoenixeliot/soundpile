@@ -22,7 +22,8 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
 
   start: function (options) {
     if (options.model === this.model) {
-      return; //already playing this track, nothing to do
+      this.play(); //already on this track, just play it
+      return; 
     }
     // this.model.audio.pause();
     this.pause();

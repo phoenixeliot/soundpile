@@ -19,6 +19,7 @@ gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'swf_fu'
 
 group :development, :test do
   gem 'byebug'

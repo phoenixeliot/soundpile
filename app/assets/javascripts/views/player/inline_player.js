@@ -10,6 +10,7 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
 
   events: {
     "click .play-track": "play",
+    "click .pause-track": "pause",
     "click .position-bar-container": "seek",
     "mousedown .position-bar-container": "startDrag",
     "mouseup .position-bar-container": "stopDrag",
@@ -40,10 +41,19 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
 
   play: function (event) {
     event.preventDefault();
+    this.$(".play-track").hide();
+    this.$(".pause-track").show();
     SoundPile.player.start({
       model: this.model,
       //collection: the playlist for the page
     });
+  },
+
+  pause: function (event) {
+    event.preventDefault();
+    this.$(".pause-track").hide();
+    this.$(".play-track").show();
+    SoundPile.player.pause();
   },
 
   seek: function (event) {

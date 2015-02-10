@@ -2,16 +2,19 @@
 
 </div>
 
-<div class="inline-large-play-btn">
-  <a href="#play" class="play-track">play</a>
-</div>
+<div class="track-header">
+  <button href="#play" class="play-track inline-large-play-btn"></button>
+  <button href="#pause" class="pause-track inline-large-play-btn"></button>
 
-<div class="track-artist">
-  <%= track.escape("title") %>
-</div>
+  <div class="track-info">
+    <div class="track-artist">
+      <%= track.escape("artist") %>
+    </div>
 
-<div class="track-title">
-  <%= track.escape("artist") %>
+    <div class="track-title">
+      <%= track.escape("title") %>
+    </div>
+  </div>
 </div>
 
 <div class="position-bar-container">

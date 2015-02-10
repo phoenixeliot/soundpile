@@ -3,13 +3,59 @@
 
 /* Inline Player */
 
+.inline-player {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.art-thumbnail {
+  //TODO: Make responsive
+  background-color: blue; //TODO: remove
+
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+.track-header {
+  position: relative;
+  top: 6px;
+  height: 38px;
+
+  .inline-large-play-btn {
+    content: "";
+    border-radius: 50%;
+    background-color: #f50;
+    display: block;
+    float: left;
+    position: relative;
+    top: 5px;
+    height: 28px; //TODO: tweak
+    width: 28px;
+  }
+
+  .pause-track {
+    display: none;
+  }
+
+  .track-info {
+    display: inline-block;
+    margin-left: 7px;
+  }
+}
+
+
 .position-bar-container {
   display: block;
-  height: 50px;
+  clear: both;
+  height: 25px;
   background-color: red;
-  width: 400px;
+  width: 579px;
 
   .position-bar-loading {
+    //TODO: Fix position percent not to be relative to this
     display: block;
     width: 0%;
     height: 100%;
