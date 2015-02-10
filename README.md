@@ -12,7 +12,8 @@ SoundPile is a clone of SoundCloud built on Rails and Backbone. Users can:
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] View songs individually
-- [ ] Play songs (with ajax player)
+- [x] Play songs (with ajax player)
+- [x] Make song listing into a player that syncs with persistent player
 - [ ] View index of all songs
 - [ ] Share songs
 - [x] View another user's shared songs
@@ -75,7 +76,6 @@ music.
 - [ ] Keyboard controls
 - [ ] Follow users to see their posted songs in your stream
 - [ ] Like/reblog/play counts on song listings
-- [ ] Make song listing into a player that syncs with persistent player
 - [ ] Multiple sessions/session management
 - [ ] User avatars, album art
 - [ ] Song/artist search
