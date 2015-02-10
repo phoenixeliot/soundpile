@@ -9,6 +9,10 @@ class Track < ActiveRecord::Base
   validates_attachment_content_type :audio,
         content_type: %w[audio/mpeg audio/ogg audio/webm audio/x-aiff audio/aiff application/octet-stream]
 
+  has_attached_file :cover_art
+  validates_attachment_content_type :cover_art,
+        content_type: %w[image/gif image/jpeg image/png]
+
   private
     def ensure_artist_name
       self.artist ||= self.owner.display_name

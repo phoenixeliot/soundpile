@@ -29,7 +29,7 @@ module SoundPile
     config.paperclip_defaults = {
       storage: :s3,
       url: ':s3_domain_url',
-      path: '/tracks/:basename.:extension',
+      path: '/:owner/:type/:basename_:style.:extension',
       s3_permissions: :public_read,
       s3_credentials: {
         bucket: ENV['S3_BUCKET_NAME'],
@@ -37,5 +37,13 @@ module SoundPile
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
       }
     }
+
+    Paperclip.interpolates :owner do |attachment, style|
+      attachment.instance.owner.username
+    end
+
+    Paperclip.interpolates :type do |attachment, style|
+      attachment.name
+    end
   end
 end
