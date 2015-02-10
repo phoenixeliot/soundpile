@@ -9,6 +9,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
   },
 
   template: JST["main"],
+
   //Note: This should not be called regularly! That would break the player.
   render: function () {
     this.$el.html(this.template());
@@ -17,7 +18,13 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
   },
 
   index: function () {
-    this.$(".page").html("I'll be an index, some day."); //TODO
+    var shares = new SoundPile.Collections.Shares();
+    var indexView = new SoundPile.Views.Index();
+    shares.fetch({
+      success: function (shares) {
+        this._swapView(indexView);
+      }.bind(this)
+    });
     return this;
   },
 
@@ -39,9 +46,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
     user.fetch({
       success: function (user) {
-        this.removeSubview(".page");
-        this.addSubview(".page", userShowView);
-        //TODO: Make a replaceSubview?
+        this._swapView(userShowView);
       }.bind(this)
     });
     return this;
@@ -49,8 +54,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
   //TODO: do I even need this if I'm using add/removeSubview?
   _swapView: function (view) {
-    this.currentView && this.currentView.remove();
-    this.currentView = view;
-    this.$(".page").html(view.render().$el);
+    this.removeSubview(".page");
+    this.addSubview(".page", view);
   },
 });
