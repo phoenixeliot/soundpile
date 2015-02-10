@@ -5,14 +5,22 @@
 
 .position-bar-container {
   display: block;
-  height: 10px;
-  background-color: blue;
+  height: 50px;
+  background-color: red;
   width: 400px;
 
-  .position-bar {
+  .position-bar-loading {
     display: block;
-    height: 10px;
-    background-color: red;
+    width: 0%;
+    height: 100%;
+    background-color: orange;
+
+    .position-bar {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background-color: blue;
+    }
   }
 }
 
