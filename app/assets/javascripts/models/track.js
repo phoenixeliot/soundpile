@@ -21,13 +21,12 @@ SoundPile.Models.Track = Backbone.Model.extend({
         }.bind(this),
       });
 
-      this.audio._a.addEventListener('stalled', function() {
-        debugger;
-        if (!audio) return;
-        var audio = this;
-        audio.load();
-        audio.play();
-      });
+      // this.audio._a.addEventListener('stalled', function() {
+      //   if (!audio) return;
+      //   // var audio = this;
+      //   audio.load();
+      //   audio.play();
+      // });
 
     }
     return payload;
@@ -37,8 +36,15 @@ SoundPile.Models.Track = Backbone.Model.extend({
     return this.audio.position;
   },
 
-  durationLoaded: function () {
-    return this.audio.duration;
+  fractionLoaded: function () {
+    if (!this.audio) {
+      return 0;
+    }
+    return this.audio.bytesLoaded / this.audio.bytesTotal;
+  },
+
+  percentLoaded: function (options) {
+    return (this.fractionLoaded() * 100) + "%";
   },
 
   duration: function () {

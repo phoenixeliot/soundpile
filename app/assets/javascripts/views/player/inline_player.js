@@ -31,16 +31,11 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   renderPosition: function () {
     var fractionalPosition = this.model.position() / this.model.duration();
     var percentPosition = (fractionalPosition * 100) + "%";
-    console.log("Position: " + percentPosition);
     this.$(".position-bar").css("width", percentPosition);
   },
 
   renderLoading: function () {
-    var fractionalPosition = this.model.durationLoaded() / this.model.duration();
-    // var fractionalPosition = this.model.audio.bytesLoaded() / this.model.audio.bytesTotal();
-    var percentPosition = (fractionalPosition * 100) + "%";
-    console.log("Loading: " + percentPosition);
-    this.$(".position-bar-loading").css("width", percentPosition);
+    this.$(".position-bar-loading").css("width", this.model.percentLoaded());
   },
 
   play: function (event) {
@@ -53,7 +48,8 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
 
   seek: function (event) {
     var totalWidth = this.$(".position-bar-container").width();
-    var percentage = event.offsetX / totalWidth;
+    var offsetX  = (event.offsetX || event.clientX - $(event.target).offset().left);
+    var percentage = offsetX / totalWidth;
     var position = percentage * this.model.duration();
     this.model.setPosition(position);
     console.log("seek");
