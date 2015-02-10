@@ -29,7 +29,7 @@ module SoundPile
     config.paperclip_defaults = {
       storage: :s3,
       url: ':s3_domain_url',
-      path: '/:owner/:type/:basename_:style.:extension',
+      path: '/:type/:owner/:basename_:style.:extension',
       s3_permissions: :public_read,
       s3_credentials: {
         bucket: ENV['S3_BUCKET_NAME'],
@@ -43,7 +43,13 @@ module SoundPile
     end
 
     Paperclip.interpolates :type do |attachment, style|
-      attachment.name
+      case attachment.name
+      when :audio
+        :audio
+      when :cover_art
+        :image
+      #TODO: Handle profile pictures, anything else
+      end
     end
   end
 end
