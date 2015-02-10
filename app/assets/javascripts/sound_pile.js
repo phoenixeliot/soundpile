@@ -11,7 +11,7 @@ window.SoundPile = {
 
 soundManager.setup({
   url: "/assets",
-  preferFlash: false,
+  preferFlash: true,
   onready: function () {
     //Nothing to do, yet.
   },
