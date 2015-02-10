@@ -19,15 +19,16 @@ SoundPile.Models.Track = Backbone.Model.extend({
         whileloading: function (audio) {
           this.trigger("load:change");
         }.bind(this),
+        onpause: function (audio) {
+          this.trigger("pause");
+        }.bind(this),
+        onplay: function (audio) {
+          this.trigger("play");
+        }.bind(this),
+        onfinish: function (audio) {
+          this.trigger("finish");
+        }.bind(this),
       });
-
-      // this.audio._a.addEventListener('stalled', function() {
-      //   if (!audio) return;
-      //   // var audio = this;
-      //   audio.load();
-      //   audio.play();
-      // });
-
     }
     return payload;
   },

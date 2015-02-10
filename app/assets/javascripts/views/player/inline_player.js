@@ -21,6 +21,8 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'position:change', this.renderPosition);
     this.listenTo(this.model, 'load:change', this.renderLoading);
+    this.listenTo(this.model, 'pause', this.showPlayButton);
+    this.listenTo(this.model, 'play', this.showPauseButton);
   },
 
   render: function () {
@@ -41,19 +43,28 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
 
   play: function (event) {
     event.preventDefault();
-    this.$(".play-track").hide();
-    this.$(".pause-track").show();
+    this.showPauseButton();
     SoundPile.player.start({
       model: this.model,
       //collection: the playlist for the page
     });
   },
 
+  showPauseButton: function (event) {
+    this.$(".play-track").hide();
+    this.$(".pause-track").show();
+  },
+
   pause: function (event) {
     event.preventDefault();
+    this.showPlayButton();
+    SoundPile.player.pause();
+  },
+
+  showPlayButton: function (event) {
+    console.log("show play");
     this.$(".pause-track").hide();
     this.$(".play-track").show();
-    SoundPile.player.pause();
   },
 
   seek: function (event) {
