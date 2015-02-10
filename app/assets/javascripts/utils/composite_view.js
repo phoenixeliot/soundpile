@@ -62,6 +62,11 @@ Backbone.CompositeView = Backbone.View.extend({
     }
   },
 
+  replaceSubviews: function (selector, subview) {
+    this.removeSubview(selector);
+    this.addSubview(selector, subview);
+  },
+
   subviews: function (selector) {
     // Map of selectors to subviews that live inside that selector.
     // Optionally pass a selector and I'll initialize/return an array

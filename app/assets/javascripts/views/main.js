@@ -22,7 +22,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
     var indexView = new SoundPile.Views.Index();
     shares.fetch({
       success: function (shares) {
-        this._swapView(indexView);
+        this.replaceSubviews(".page", indexView);
       }.bind(this)
     });
     return this;
@@ -46,15 +46,9 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
 
     user.fetch({
       success: function (user) {
-        this._swapView(userShowView);
+        this.replaceSubviews(".page", userShowView);
       }.bind(this)
     });
     return this;
-  },
-
-  //TODO: do I even need this if I'm using add/removeSubview?
-  _swapView: function (view) {
-    this.removeSubview(".page");
-    this.addSubview(".page", view);
   },
 });
