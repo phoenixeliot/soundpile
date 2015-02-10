@@ -21,3 +21,9 @@ body {
   padding-top: 52px; // Start below the navbar
   font-family: "Interstate", "Lucida Grande"
 }
+
+#main {
+  position: relative;
+  max-width: 960px;
+  margin: auto;
+}

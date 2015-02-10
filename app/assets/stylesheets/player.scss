@@ -48,6 +48,7 @@
 
 
 .position-bar-container {
+  position: relative;
   display: block;
   clear: both;
   height: 25px;
@@ -56,17 +57,19 @@
 
   .position-bar-loading {
     //TODO: Fix position percent not to be relative to this
+    position: absolute;
     display: block;
     width: 0%;
     height: 100%;
     background-color: orange;
+  }
 
-    .position-bar {
-      display: block;
-      width: 0%;
-      height: 100%;
-      background-color: blue;
-    }
+  .position-bar {
+    position: absolute;
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: blue;
   }
 }
 
