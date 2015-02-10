@@ -3,10 +3,17 @@
 
 /* Inline Player */
 
-.position-bar {
+.position-bar-container {
   display: block;
   height: 10px;
-  background-color: red;
+  background-color: blue;
+  width: 400px;
+
+  .position-bar {
+    display: block;
+    height: 10px;
+    background-color: red;
+  }
 }
 
 /* Persistent Player */

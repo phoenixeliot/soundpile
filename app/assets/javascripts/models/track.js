@@ -29,4 +29,9 @@ SoundPile.Models.Track = Backbone.Model.extend({
     //TODO: Return this in the JSON?
     return this.audio.durationEstimate;
   },
+
+  setPosition: function (pos) {
+    this.audio.setPosition(pos);
+    this.trigger("position:change");
+  },
 });
