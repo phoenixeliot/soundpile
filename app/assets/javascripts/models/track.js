@@ -41,6 +41,8 @@ SoundPile.Models.Track = Backbone.Model.extend({
     if (!this.audio) {
       return 0;
     }
+    //Warning! These values are misleading, and don't match SM2's documentation.
+    //bytesLoaded is really a fraction, and bytesTotal is really 1.
     return this.audio.bytesLoaded / this.audio.bytesTotal;
   },
 

@@ -11,9 +11,10 @@ window.SoundPile = {
 
 soundManager.setup({
   url: "/assets",
-  preferFlash: true,
+  preferFlash: false,
   onready: function () {
     //Nothing to do, yet.
+    //TODO: Don't create sounds until this triggers (only a problem with flash mode)
   },
 
   ontimeout: function () {
