@@ -17,3 +17,7 @@ SoundPile.Models.User = Backbone.Model.extend({
     return this._shares;
   }
 });
+
+SoundPile.Models.CurrentUser = SoundPile.Models.User.extend({
+  url: '/api/current_user',
+});

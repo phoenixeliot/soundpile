@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :shares, foreign_key: :owner_id
   has_many :shared_tracks, through: :shares, source: :track
 
+  has_many :likes
+  has_many :liked_tracks, through: :likes, source: :track
+
   attr_reader :password
 
   after_initialize :ensure_session_token

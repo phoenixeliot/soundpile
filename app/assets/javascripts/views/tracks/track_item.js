@@ -7,6 +7,7 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
   template: JST["tracks/show"],
 
   events: {
+    "click button.like": "addLike"
   },
 
   initialize: function () {
@@ -20,5 +21,20 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
     //player subview does most of the work
     this.attachSubviews();
     return this;
+  },
+
+  addLike: function (event) {
+    event.preventDefault();
+    console.log("Liking...");
+    var like = new SoundPile.Models.Like({
+      user_id: SoundPile.current_user.id,
+      track_id: this.model.id
+    });
+    console.log(like);
+    like.save({}, {
+      success: function (options) {
+        console.log("You like it!"); //TODO: Remove, maybe replace
+      }
+    });
   },
 });

@@ -5,3 +5,5 @@ json.title track.title
 json.artist track.artist
 json.audio_url track.audio.url
 json.cover_art_url track.cover_art.url
+json.num_likes track.likes.count
+json.num_shares track.shares.count

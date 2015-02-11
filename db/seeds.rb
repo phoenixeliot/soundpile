@@ -9,9 +9,10 @@
 users = User.create!([
   { username: 'peter', password: 'eeeeee', display_name: 'Felix' },
   { username: 'elliott', password: 'ffffff', display_name: 'Wind Fish' },
+  { username: 'guest', password: 'password', display_name: 'Guest' },
 ])
 
-peter, elliott, _ = users
+peter, elliott, guest, _ = users
 
 tracks = Track.create!([
   {
@@ -56,25 +57,48 @@ tracks = Track.create!([
   }
   ])
 
-  shares = Share.create!([
-    {
-      owner: elliott,
-      track: tracks[1]
-    },
-    {
-      owner: elliott,
-      track: tracks[2]
-    },
-    {
-      owner: elliott,
-      track: tracks[3]
-    },
-    {
-      owner: peter,
-      track: tracks[0]
-    },
-    {
-      owner: peter,
-      track: tracks[1]
-    },
-    ])
+shares = Share.create!([
+  {
+    owner: elliott,
+    track: tracks[1]
+  },
+  {
+    owner: elliott,
+    track: tracks[2]
+  },
+  {
+    owner: elliott,
+    track: tracks[3]
+  },
+  {
+    owner: peter,
+    track: tracks[0]
+  },
+  {
+    owner: peter,
+    track: tracks[1]
+  },
+])
+
+likes = Like.create!([
+  {
+    user: peter,
+    track: tracks[0]
+  },
+  {
+    user: peter,
+    track: tracks[1]
+  },
+  {
+    user: peter,
+    track: tracks[2]
+  },
+  {
+    user: guest,
+    track: tracks[0]
+  },
+  {
+    user: guest,
+    track: tracks[1]
+  },
+])

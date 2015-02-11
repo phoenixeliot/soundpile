@@ -6,6 +6,9 @@ window.SoundPile = {
   initialize: function() {
     SoundPile.router = new SoundPile.Routers.Router({ $rootEl: $('#main') });
     Backbone.history.start();
+
+    SoundPile.current_user = new SoundPile.Models.CurrentUser();
+    SoundPile.current_user.fetch();
   }
 };
 
