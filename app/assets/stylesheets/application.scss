@@ -28,3 +28,14 @@ body {
   max-width: 960px;
   margin: auto;
 }
+
+a:link, a:visited, a:active {
+  //TODO: Make more specific rules for this. Some start dark, some stay light.
+  color: #999;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #333;
+  text-decoration: none;
+}
