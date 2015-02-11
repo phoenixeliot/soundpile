@@ -8,7 +8,9 @@
 
   <div class="track-info">
     <div class="track-artist">
-      <%= track.escape("artist") %>
+      <a href="#/users/<%= track.escape('owner_id') %>">
+        <%= track.escape("artist") %>
+      </a>
     </div>
 
     <div class="track-title">
