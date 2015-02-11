@@ -43,13 +43,7 @@ module SoundPile
     end
 
     Paperclip.interpolates :type do |attachment, style|
-      case attachment.name
-      when :audio
-        :audio
-      when :cover_art
-        :image
-      #TODO: Handle profile pictures, anything else
-      end
+      attachment.name
     end
   end
 end
