@@ -22,7 +22,7 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'position:change', this.renderPosition);
     this.listenTo(this.model, 'load:change', this.renderLoading);
     this.listenTo(this.model, 'pause', this.showPlayButton);
-    this.listenTo(this.model, 'play', this.showPauseButton);
+    this.listenTo(this.model, 'play resume', this.showPauseButton);
   },
 
   render: function () {

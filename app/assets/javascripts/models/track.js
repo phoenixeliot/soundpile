@@ -10,22 +10,25 @@ SoundPile.Models.Track = Backbone.Model.extend({
 
   parse: function (payload) {
     if (payload.audio_url) {
-      var audio = this.audio = soundManager.createSound({
+      audio = this.audio = soundManager.createSound({
         id: payload.id,
         url: payload.audio_url,
-        whileplaying: function (audio) {
+        whileplaying: function () {
           this.trigger("position:change");
         }.bind(this),
-        whileloading: function (audio) {
+        whileloading: function () {
           this.trigger("load:change");
         }.bind(this),
-        onpause: function (audio) {
+        onpause: function () {
           this.trigger("pause");
         }.bind(this),
-        onplay: function (audio) {
+        onplay: function () {
           this.trigger("play");
         }.bind(this),
-        onfinish: function (audio) {
+        onresume: function () {
+          this.trigger("resume");
+        }.bind(this),
+        onfinish: function () {
           this.trigger("finish");
         }.bind(this),
       });

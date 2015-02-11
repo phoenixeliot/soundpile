@@ -5,6 +5,8 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
     //TODO: Make sure I'm not over/under-caching files.
     //TODO: Listen for events on the collection/model?
     this.$(".play-btn").hide();
+    this.listenTo(this.model, 'pause', this.showPlayButton);
+    this.listenTo(this.model, 'play resume', this.showPauseButton);
   },
 
   events: {
@@ -23,7 +25,7 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
   start: function (options) {
     if (options.model === this.model) {
       this.play(); //already on this track, just play it
-      return; 
+      return;
     }
     // this.model.audio.pause();
     this.pause();
