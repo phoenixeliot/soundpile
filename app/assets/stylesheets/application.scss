@@ -14,9 +14,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "reset";
 @import "sessions";
 @import "inline_player";
 @import "persistent_player";
+@import "track";
 
 body {
   padding-top: 52px; // Start below the navbar
@@ -26,6 +28,7 @@ body {
 #main {
   position: relative;
   max-width: 960px;
+  padding: 0 20px;
   margin: auto;
 }
 

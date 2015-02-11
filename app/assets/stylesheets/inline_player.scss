@@ -1,18 +1,18 @@
 /* Inline Player */
 
 .inline-player {
-  margin-top: 10px;
-  margin-bottom: 25px;
 }
 
 .art-thumbnail {
   //TODO: Make responsive
+  box-sizing: content-box;
 
   float: left;
   width: 50px;
   height: 50px;
-  margin-right: 6px;
-  margin-bottom: 6px;
+  padding: 6px;
+  margin-left: -6px;
+  margin-top: -6px;
 }
 
 .track-header {
