@@ -15,7 +15,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "sessions";
-@import "player";
+@import "inline_player";
+@import "persistent_player";
 
 body {
   padding-top: 52px; // Start below the navbar
