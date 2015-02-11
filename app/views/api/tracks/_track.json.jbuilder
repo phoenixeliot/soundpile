@@ -4,3 +4,4 @@ json.owner_id track.owner_id
 json.title track.title
 json.artist track.artist
 json.audio_url track.audio.url
+json.cover_art_url track.cover_art.url
