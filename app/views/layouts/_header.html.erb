@@ -19,6 +19,13 @@
     </div>
   </form>
 
+<% if logged_in? %>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <a href="<%= signout_url %>">Sign out</a>
+    </li>
+  </ul>
+<% else %>
   <ul class="nav navbar-nav navbar-right">
     <li>
       <a href="<%= signin_url %>">Sign in</a>
@@ -28,5 +35,6 @@
       <a href="<%= signup_url %>">Sign up</a>
     </li>
   </ul>
+<% end %>
 </div>
 </nav>
