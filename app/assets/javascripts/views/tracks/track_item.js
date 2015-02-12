@@ -28,7 +28,6 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
     this.$el.html(this.template({ track: this.model }));
 
     if (this.model.current_user_like) {
-      console.log("Track is already liked");
       this.$("button.like").addClass("selected");
     }
 
@@ -39,14 +38,11 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
 
   addLike: function (event) {
     event.preventDefault();
-    console.log("Liking...");
     this.model.addLike();
   },
 
   removeLike: function (event) {
-    //TODO: Put some of this in the Track model?
     event.preventDefault();
-    console.log("Unliking...");
     this.model.removeLike();
   },
 });
