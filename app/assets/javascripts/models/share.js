@@ -4,7 +4,7 @@ SoundPile.Models.Share = Backbone.Model.extend({
   parse: function (payload) {
     if (payload.track) {
       this.set({
-        track: new SoundPile.Models.Track(payload.track, { parse: true })
+        track: SoundPile.tracks.getOrCreate(payload.track, { parse: true })
       });
     }
 

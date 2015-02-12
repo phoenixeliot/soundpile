@@ -1,7 +1,7 @@
 SoundPile.Models.Track = Backbone.Model.extend({
   urlRoot: '/api/tracks',
 
-  initialize: function (options) {
+  initialize: function (attributes, options) {
     if (typeof options === "undefined") {
       //Create placeholders for when player has a null track
       this.audio = new Audio();

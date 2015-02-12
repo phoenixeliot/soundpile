@@ -43,7 +43,6 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
 
   play: function (event) {
     event.preventDefault();
-    this.showPauseButton();
     SoundPile.player.start({
       model: this.model,
       //collection: the playlist for the page
@@ -62,7 +61,6 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   },
 
   showPlayButton: function (event) {
-    console.log("show play");
     this.$(".pause-track").hide();
     this.$(".play-track").show();
   },
@@ -73,12 +71,10 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
     var percentage = offsetX / totalWidth;
     var position = percentage * this.model.duration();
     this.model.setPosition(position);
-    console.log("seek");
   },
 
   startDrag: function (event) {
     this.dragging = true;
-    console.log("dragging");
   },
 
   stopDrag: function (event) {

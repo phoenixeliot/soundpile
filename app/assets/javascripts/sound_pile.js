@@ -4,6 +4,8 @@ window.SoundPile = {
   Views: {},
   Routers: {},
   initialize: function() {
+    SoundPile.tracks = new SoundPile.Collections.Tracks();
+
     SoundPile.router = new SoundPile.Routers.Router({ $rootEl: $('#main') });
     Backbone.history.start();
 
