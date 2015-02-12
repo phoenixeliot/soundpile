@@ -37,10 +37,8 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
       user_id: SoundPile.current_user.id,
       track_id: this.model.id
     });
-    console.log(like);
     like.save({}, {
       success: function (like) {
-        console.log("You like it!"); //TODO: Remove, maybe replace
         this.$("button.like").addClass("selected");
         this.model.current_user_like = like;
       }.bind(this)
@@ -53,10 +51,9 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
     console.log("Unliking...");
     var like = this.model.current_user_like;
     like.destroy({
-      success: function (options) {
-        console.log("You don't like it!"); //TODO: Remove, maybe replace
+      success: function (like) {
         this.$("button.like").removeClass("selected");
-        this.model.current_user_like = like;
+        this.model.current_user_like = null;
       }.bind(this)
     });
   },
