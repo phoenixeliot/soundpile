@@ -20,6 +20,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
 gem 'swf_fu'
+gem 'audio_waveform-ruby'
 
 group :development, :test do
   gem 'byebug'
