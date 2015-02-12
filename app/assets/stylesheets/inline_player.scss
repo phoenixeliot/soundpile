@@ -22,19 +22,53 @@
 
   .inline-large-play-btn {
     content: "";
-    border-radius: 50%;
-    background-color: #f50;
     display: block;
     float: left;
     position: relative;
     top: 5px;
     height: 28px; //TODO: tweak
     width: 28px;
+
+    .glyphicon {
+      color: white;
+      font-size: 16px;
+      margin-top: 3px;
+    }
+
+    //One of the only things not styled manually
+    background-color: rgb(255, 51, 0);
+    background-image: linear-gradient(rgba(255, 153, 0, 0.6), rgba(255, 102, 0, 0.6) 40%, rgba(255, 17, 0, 0.6));
+    border-bottom-color: rgba(255, 17, 0, 0.247059);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgba(255, 51, 0, 0.247059);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgba(255, 51, 0, 0.247059);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgba(255, 102, 0, 0.74902);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-shadow: rgba(255, 51, 0, 0.34902) 0px 0px 2px 0px, rgba(255, 51, 0, 0.247059) 0px -1px 3px 0px inset, rgba(0, 0, 0, 0.14902) 0px 0px 3px 0px, rgba(102, 51, 0, 0.2) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.34902) 0px 2px 2px 0px inset, rgba(255, 255, 255, 0.247059) 0px -2px 2px 0px inset;
+    box-sizing: border-box;
   }
 
   .pause-track {
     display: none;
-    background-color: #ff0;
+
+    .glyphicon {
+      margin-left: -0.5px;
+    }
   }
 
   .track-info {
