@@ -11,11 +11,6 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   events: {
     "click .play-track": "play",
     "click .pause-track": "pause",
-    "click .position-bar-container": "seek",
-    "mousedown .position-bar-container": "startDrag",
-    "mouseup .position-bar-container": "stopDrag",
-    "mouseleave .position-bar-container": "stopDrag",
-    "mousemove .position-bar-container": "seekIfDragging",
 
     "mousedown canvas": "startDrag",
     "mouseup canvas": "stopDrag",
