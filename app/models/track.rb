@@ -16,6 +16,10 @@ class Track < ActiveRecord::Base
   has_many :likes
   has_many :likers, through: :likes, source: :user #Might want to rename this
 
+  def liked_by? user
+    !self.likes.where(user_id: user.id).empty?
+  end
+
   private
     def ensure_artist_name
       self.artist ||= self.owner.display_name

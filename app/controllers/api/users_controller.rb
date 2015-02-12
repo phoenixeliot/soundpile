@@ -12,7 +12,11 @@ class Api::UsersController < ApplicationController
 
   def current
     @user = current_user
-    @include_id = true
-    render :show
+    if @user
+      @include_id = true
+      render :show
+    else
+      render json: {}
+    end
   end
 end

@@ -7,7 +7,8 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
   template: JST["tracks/show"],
 
   events: {
-    "click button.like": "addLike"
+    "click button.like:not(.selected)": "addLike",
+    "click button.like.selected": "removeLike",
   },
 
   initialize: function () {
@@ -18,6 +19,12 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
   render: function () {
     var track = this.model;
     this.$el.html(this.template({ track: this.model }));
+
+    if (this.model.current_user_like) {
+      console.log("Track is already liked");
+      this.$("button.like").addClass("selected");
+    }
+
     //player subview does most of the work
     this.attachSubviews();
     return this;
@@ -32,9 +39,25 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
     });
     console.log(like);
     like.save({}, {
-      success: function (options) {
+      success: function (like) {
         console.log("You like it!"); //TODO: Remove, maybe replace
-      }
+        this.$("button.like").addClass("selected");
+        this.model.current_user_like = like;
+      }.bind(this)
+    });
+  },
+
+  removeLike: function (event) {
+    //TODO: Put some of this in the Track model?
+    event.preventDefault();
+    console.log("Unliking...");
+    var like = this.model.current_user_like;
+    like.destroy({
+      success: function (options) {
+        console.log("You don't like it!"); //TODO: Remove, maybe replace
+        this.$("button.like").removeClass("selected");
+        this.model.current_user_like = like;
+      }.bind(this)
     });
   },
 });

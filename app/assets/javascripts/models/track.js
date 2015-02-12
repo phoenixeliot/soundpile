@@ -9,7 +9,15 @@ SoundPile.Models.Track = Backbone.Model.extend({
   },
 
   parse: function (payload) {
+    if (payload.current_user_like) {
+      console.log(payload.current_user_like);
+      this.current_user_like = new SoundPile.Models.Like(payload.current_user_like);
+      delete payload.current_user_like;
+    } else {
+      this.current_user_like = null;
+    }
     if (payload.audio_url) {
+      //TODO: Remove global
       audio = this.audio = soundManager.createSound({
         id: payload.id,
         url: payload.audio_url,

@@ -1,4 +1,6 @@
-json.id @user.id if @include_id
+if @include_id
+  json.id @user.id
+end
 json.display_name @user.display_name
 json.username @user.username
 if @include_shares
