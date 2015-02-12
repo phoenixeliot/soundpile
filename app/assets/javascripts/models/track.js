@@ -47,6 +47,10 @@ SoundPile.Models.Track = Backbone.Model.extend({
     return this.audio.position;
   },
 
+  fractionPlayed: function () {
+    return this.position() / this.duration();
+  },
+
   fractionLoaded: function () {
     if (!this.audio) {
       return 0;
