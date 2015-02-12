@@ -17,7 +17,7 @@ SoundPile is a clone of SoundCloud built on Rails and Backbone. Users can:
 - [x] View index of all songs
 - [ ] Share songs
 - [x] View another user's shared songs
-- [ ] Like songs
+- [x] Like songs
 - [ ] View liked songs
 
 ## Design Docs
