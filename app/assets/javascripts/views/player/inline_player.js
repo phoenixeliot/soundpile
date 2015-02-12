@@ -61,24 +61,30 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
     var positionIndex = 192 * (audio.fractionPlayed());
     var loadedIndex = 192 * (audio.fractionLoaded());
 
+    console.log(loadedIndex);
+
     var styles = {
       bar: function (opt) {
+        var opacity = (opt.mirror ? 0.5 : 1.0);
+        opacity = (opt.isLoaded ? opacity : opacity * 0.5);
         if(opt.isPlayed) {
           var gradient = ctx.createLinearGradient(0, 46, 0, 0);
-          gradient.addColorStop(0, "rgb(255, 83, 0)");
-          gradient.addColorStop(1, "rgb(255, 52, 0)");
+          gradient.addColorStop(0, "rgba(255,83,0,"+ opacity +")");
+          gradient.addColorStop(1, "rgba(255,52,0,"+ opacity +")");
           return gradient;
         } else {
-          return "rgb(51,51,51)";
+          return "rgba(51,51,51, "+ opacity +")";
         }
       },
       gap: function (opt) {
+        var opacity = (opt.mirror ? 0.5 : 1.0);
+        opacity = (opt.isLoaded ? opacity : opacity * 0.5);
         var gradient = ctx.createLinearGradient(0, 46, 0, 0);
         if (opt.isPlayed) {
-          gradient.addColorStop(0, "rgb(255,54,2)");
+          gradient.addColorStop(0, "rgba(255,54,2,"+ opacity +")");
           gradient.addColorStop(1, "white");
         } else {
-          gradient.addColorStop(0, "rgb(53,53,53)");
+          gradient.addColorStop(0, "rgba(53,53,53,"+ opacity +")");
           gradient.addColorStop(1, "white");
         }
         return gradient;
@@ -94,13 +100,14 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
 
     ctx.fillStyle = styles.bar({});
 
-    var maxHeight = 46;
+    var maxHeight = 36;
     var width = 2;
     $(barHeights).each(function (i, height) {
-      ctx.fillStyle = styles.bar({
+      var styleOptions = {
         isPlayed: i < positionIndex,
         isLoaded: i < loadedIndex,
-      });
+      };
+      ctx.fillStyle = styles.bar(styleOptions);
 
       var x = i*3;
       var y = maxHeight - height;
@@ -109,10 +116,11 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
 
     width = 1;
     $(gapData).each(function (i, height) {
-      ctx.fillStyle = styles.gap({
+      var styleOptions = {
         isPlayed: i < positionIndex,
         isLoaded: i < loadedIndex,
-      });
+      };
+      ctx.fillStyle = styles.gap(styleOptions);
 
       var x = i*3 + 2;
       var y = maxHeight - height;
