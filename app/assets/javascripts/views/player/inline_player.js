@@ -44,20 +44,44 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
     this.$(".position-bar-loading").css("width", this.model.percentLoaded());
   },
 
-  renderWaveform: function () {
+  renderWaveform: function (options) {
     var canvas = this.$("canvas")[0];
     var ctx = canvas.getContext("2d");
 
+    var styles = {
+      bar: function () { return "rgb(51,51,51)"; },
+      gap: function () {
+        var gradient = ctx.createLinearGradient(0, 46, 0, 0);
+        gradient.addColorStop(0, "rgb(53,53,53)");
+        gradient.addColorStop(1, "white");
+        return gradient;
+      },
+    };
+
     //stub data
-    //max: 46
-    var data = [32,31,42,39,28,27,38,22,8,24,2,41,9,18,20,5,42,24,23,43,7,17,8,7,42,33,40,7,20,18,3,2,21,1,29,14,6,45,15,5,1,16,2,24,28,25,22,2,40,2,14,43,33,45,18,10,21,36,24,14,12,25,2,5,44,34,33,25,2,37,7,10,9,45,7,32,21,41,33,6,26,32,45,25,10,20,14,35,25,34,7,35,21,29,33,11,3,29,19,38,43,14,24,13,36,25,0,35,28,25,40,38,16,28,18,43,24,2,28,33,7,19,30,14,21,30,18,15,35,45,34,13,22,38,28,11,9,40,8,28,28,6,18,43,19,12,7,12,28,0,18,32,1,14,1,41,12,37,45,16,17,40,9,9,9,45,17,9,7,38,27,34,8,23,13,2,18,24,11,23,43,19,37,9,6,17,19,45,15,20,27,30,27,18,37,35];
-    // var data = [32,31,42,39];
+    var data = [21,35,30,27,33,17,44,43,41,25,37,16,27,31,31,18,24,29,30,30,21,21,40,32,26,17,32,20,18,24,41,22,19,22,16,37,39,32,21,38,38,18,38,26,17,38,28,24,21,35,21,29,20,39,37,43,42,30,35,23,42,38,18,20,38,21,41,24,20,40,38,35,33,24,26,26,33,43,43,28,26,25,24,35,37,32,22,42,29,23,18,34,26,23,20,43,33,17,31,26,26,34,35,42,24,41,42,20,25,37,44,31,27,45,24,41,30,43,16,20,33,16,25,45,38,39,17,22,19,35,24,26,34,39,23,16,33,34,44,45,35,37,44,37,41,31,36,34,44,32,20,20,39,22,32,29,44,25,21,43,43,26,33,34,24,16,27,32,22,16,25,45,35,37,22,31,16,21,28,23,36,39,44,19,21,37,37,41,20,31,24,35];
 
-    ctx.fillStyle = "rgba(51,51,51)";
+    pairMinimums = data.map(function (val, i, data) {
+      return (data[i+1] < val ? data[i+1] : val);
+    });
 
+    ctx.fillStyle = styles.bar();
+
+    var maxHeight = 46;
+    var width = 2;
     $(data).each(function (i, height) {
-      console.log(height, i);
-      ctx.fillRect (i*3, (46-height), 2, height);
+      var x = i*3;
+      var y = maxHeight - height;
+      ctx.fillRect (x, y, width, height);
+    });
+
+    width = 1;
+    $(pairMinimums).each(function (i, height) {
+      ctx.fillStyle = styles.gap();
+
+      var x = i*3 + 2;
+      var y = maxHeight - height;
+      ctx.fillRect (x, y, width, height);
     });
   },
 
