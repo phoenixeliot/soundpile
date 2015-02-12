@@ -20,4 +20,15 @@ SoundPile.Models.User = Backbone.Model.extend({
 
 SoundPile.Models.CurrentUser = SoundPile.Models.User.extend({
   url: '/api/current_user',
+
+  enforceLogin: function () {
+    if (!this.isLoggedIn()){
+      $("a.signin").blink();
+    };
+    return this.isLoggedIn();
+  },
+
+  isLoggedIn: function () {
+    return (typeof this.attributes.id !== "undefined");
+  },
 });

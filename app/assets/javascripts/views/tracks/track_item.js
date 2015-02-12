@@ -38,11 +38,15 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
 
   addLike: function (event) {
     event.preventDefault();
-    this.model.addLike();
+    if (SoundPile.current_user.enforceLogin()) {
+      this.model.addLike();
+    }
   },
 
   removeLike: function (event) {
     event.preventDefault();
-    this.model.removeLike();
+    if (SoundPile.current_user.enforceLogin()) {
+      this.model.removeLike();
+    }
   },
 });

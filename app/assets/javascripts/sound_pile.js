@@ -10,8 +10,9 @@ window.SoundPile = {
     Backbone.history.start();
 
     SoundPile.current_user = new SoundPile.Models.CurrentUser();
+    console.log(SoundPile.current_user.isNew());
     SoundPile.current_user.fetch();
-  }
+  },
 };
 
 soundManager.setup({

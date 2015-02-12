@@ -10,7 +10,6 @@ SoundPile.Models.Track = Backbone.Model.extend({
 
   parse: function (payload) {
     if (payload.current_user_like) {
-      console.log(payload.current_user_like);
       this.current_user_like = new SoundPile.Models.Like(payload.current_user_like);
       delete payload.current_user_like;
     } else {
