@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       flash[:errors] = @user.errors.full_messages
-      redirect_to signup_url
+      render :new
     end
   end
 
