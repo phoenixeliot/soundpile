@@ -70,4 +70,27 @@ SoundPile.Models.Track = Backbone.Model.extend({
     this.audio.setPosition(pos);
     this.trigger("position:change");
   },
+
+  addLike: function () {
+    var like = new SoundPile.Models.Like({
+      user_id: SoundPile.current_user.id,
+      track_id: this.id
+    });
+    like.save({}, {
+      success: function (like) {
+        this.current_user_like = like;
+        this.trigger("like:add");
+      }.bind(this)
+    });
+  },
+
+  removeLike: function () {
+    var like = this.current_user_like;
+    like.destroy({
+      success: function (like) {
+        this.current_user_like = null;
+        this.trigger("like:remove");
+      }.bind(this)
+    });
+  },
 });

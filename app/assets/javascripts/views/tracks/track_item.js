@@ -1,6 +1,6 @@
 /*
-This view contains the inline player subview, and buttons/links about a track
-that are not part of the inline player
+This view contains the inline player subview, and buttons/links about the track
+which are not part of the inline player
 */
 
 SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
@@ -14,6 +14,13 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
   initialize: function () {
     var inlinePlayerView = new SoundPile.Views.InlinePlayer({ model: this.model });
     this.addSubview(".inline-player", inlinePlayerView);
+
+    this.listenTo(this.model, "like:add", function () {
+      this.$("button.like").addClass("selected");
+    });
+    this.listenTo(this.model, "like:remove", function () {
+      this.$("button.like").removeClass("selected");
+    });
   },
 
   render: function () {
@@ -33,28 +40,13 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
   addLike: function (event) {
     event.preventDefault();
     console.log("Liking...");
-    var like = new SoundPile.Models.Like({
-      user_id: SoundPile.current_user.id,
-      track_id: this.model.id
-    });
-    like.save({}, {
-      success: function (like) {
-        this.$("button.like").addClass("selected");
-        this.model.current_user_like = like;
-      }.bind(this)
-    });
+    this.model.addLike();
   },
 
   removeLike: function (event) {
     //TODO: Put some of this in the Track model?
     event.preventDefault();
     console.log("Unliking...");
-    var like = this.model.current_user_like;
-    like.destroy({
-      success: function (like) {
-        this.$("button.like").removeClass("selected");
-        this.model.current_user_like = null;
-      }.bind(this)
-    });
+    this.model.removeLike();
   },
 });
