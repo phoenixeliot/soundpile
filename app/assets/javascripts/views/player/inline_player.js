@@ -57,16 +57,17 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   renderWaveform: function (options) {
     var canvas = this.$("canvas")[0];
     var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     var audio = this.model;
     var positionIndex = 192 * (audio.fractionPlayed());
     var loadedIndex = 192 * (audio.fractionLoaded());
 
-    console.log(loadedIndex);
-
     var styles = {
       bar: function (opt) {
         var opacity = (opt.mirror ? 0.5 : 1.0);
-        opacity = (opt.isLoaded ? opacity : opacity * 0.5);
+        if (!opt.isLoaded) {
+          opacity = 0.7;
+        }
         if(opt.isPlayed) {
           var gradient = ctx.createLinearGradient(0, 46, 0, 0);
           gradient.addColorStop(0, "rgba(255,83,0,"+ opacity +")");
@@ -78,7 +79,9 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
       },
       gap: function (opt) {
         var opacity = (opt.mirror ? 0.5 : 1.0);
-        opacity = (opt.isLoaded ? opacity : opacity * 0.5);
+        if (!opt.isLoaded) {
+          opacity = 0.7;
+        }
         var gradient = ctx.createLinearGradient(0, 46, 0, 0);
         if (opt.isPlayed) {
           gradient.addColorStop(0, "rgba(255,54,2,"+ opacity +")");
@@ -129,11 +132,15 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   },
 
   play: function (event) {
-    event.preventDefault();
-    SoundPile.player.start({
-      model: this.model,
-      //collection: the playlist for the page
-    });
+    event && event.preventDefault();
+    if(this.model === SoundPile.player.model) {
+      SoundPile.player.play();
+    } else {
+      SoundPile.player.start({
+        model: this.model,
+        //collection: the playlist for the page
+      });
+    }
   },
 
   showPauseButton: function (event) {
