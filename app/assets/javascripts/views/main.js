@@ -13,7 +13,7 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
   //Note: This should not be called regularly! That would break the player.
   render: function () {
     this.$el.html(this.template());
-    this.attachSubviews(); //TODO: not sure if this goes here
+    this.attachSubviews();
     return this;
   },
 
