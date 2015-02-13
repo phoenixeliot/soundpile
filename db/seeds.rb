@@ -125,6 +125,7 @@ shares = Share.create!([
   { owner: peter, track: tracks[3] },
   { owner: peter, track: tracks[10] },
   { owner: peter, track: tracks[13] },
+  { owner: peter, track: tracks[15] },
 ])
 
 likes = Like.create!([

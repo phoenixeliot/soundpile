@@ -1,6 +1,6 @@
 class Api::SharesController < ApplicationController
   def index
-    @shares = Share.all
+    @shares = Share.all.order(created_at: :desc)
     render :index
   end
 
