@@ -119,43 +119,20 @@ tracks = Track.create!([
   ])
 
 shares = Share.create!([
-  {
-    owner: peter,
-    track: tracks[0]
-  },
-  {
-    owner: peter,
-    track: tracks[1]
-  },
+  { owner: peter, track: tracks[8] },
+  { owner: peter, track: tracks[5] },
+  { owner: peter, track: tracks[2] },
+  { owner: peter, track: tracks[3] },
+  { owner: peter, track: tracks[10] },
+  { owner: peter, track: tracks[13] },
 ])
 
 likes = Like.create!([
-  {
-    user: peter,
-    track: tracks[0]
-  },
-  {
-    user: peter,
-    track: tracks[1]
-  },
-  {
-    user: peter,
-    track: tracks[2]
-  },
-  {
-    user: guest,
-    track: tracks[0]
-  },
-  {
-    user: guest,
-    track: tracks[1]
-  },
-  {
-    user: sloslylove,
-    track: tracks[1]
-  },
-  {
-    user: sloslylove,
-    track: tracks[3]
-  },
+  { user: peter, track: tracks[0] },
+  { user: peter, track: tracks[1] },
+  { user: peter, track: tracks[2] },
+  { user: guest, track: tracks[0] },
+  { user: guest, track: tracks[1] },
+  { user: sloslylove, track: tracks[1] },
+  { user: sloslylove, track: tracks[3] },
 ])
