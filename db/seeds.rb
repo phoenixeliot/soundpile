@@ -177,7 +177,6 @@ shares = Share.create!([
   { owner: peter, track: tracks[3] },
   { owner: peter, track: tracks[10] },
   { owner: peter, track: tracks[13] },
-  { owner: peter, track: tracks[15] },
   { owner: sloslylove, track: tracks[0] },
   { owner: sloslylove, track: tracks[1] },
   { owner: sloslylove, track: tracks[6] },
