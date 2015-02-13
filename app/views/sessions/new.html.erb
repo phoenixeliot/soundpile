@@ -1,5 +1,4 @@
 <% if current_user.nil? %>
-<div class="container">
   <form class="credentials" action="<%= signin_url %>" method="post">
     <h2>Sign in!</h2>
 
@@ -35,7 +34,6 @@
       <input class="btn-submit-guest" type="submit" value="Sign in as guest">
     </div>
   </form>
-</div>
 <% else %>
 
   <div class="already-signed-in">

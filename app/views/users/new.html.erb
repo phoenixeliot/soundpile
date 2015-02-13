@@ -1,25 +1,23 @@
-<div class="container">
-  <form class="credentials" action="<%= signup_url %>" method="post">
-    <h2>Sign up!</h2>
+<form class="credentials" action="<%= signup_url %>" method="post">
+  <h2>Sign up!</h2>
 
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <div class="username">
-      <label for="user_username">Username:</label>
-      <div>
-        <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>">
-      </div>
+  <div class="username">
+    <label for="user_username">Username:</label>
+    <div>
+      <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>">
     </div>
+  </div>
 
-    <div class="password">
-      <label for="user_password">Password:</label>
-      <div>
-        <input type="password" id="user_password" name="user[password]">
-      </div>
+  <div class="password">
+    <label for="user_password">Password:</label>
+    <div>
+      <input type="password" id="user_password" name="user[password]">
     </div>
+  </div>
 
-    <div class="submit">
-      <input type="submit" value="Sign Up">
-    </div>
-  </form>
-</div>
+  <div class="submit">
+    <input type="submit" value="Sign Up">
+  </div>
+</form>
