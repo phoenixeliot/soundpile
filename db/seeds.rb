@@ -55,7 +55,6 @@ tracks = Track.create!([
     cover_art_file_name: "it_means_shadow.jpg",
     cover_art_content_type: "image/jpeg",
     cover_art_file_size: 56229,
-    cover_art: File.new("./tmp/art/it_means_shadow.jpg"),
   },
   {
     title: 'Concourse Bay Ft. Phoenix',
@@ -66,7 +65,6 @@ tracks = Track.create!([
     cover_art_file_name: "concourse_bay.jpg",
     cover_art_content_type: "image/jpeg",
     cover_art_file_size: 129946,
-    cover_art: File.new("./tmp/art/concourse_bay.jpg"),
   },
   {
     title: 'Empire Builder',

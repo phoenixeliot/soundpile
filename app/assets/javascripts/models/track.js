@@ -20,6 +20,12 @@ SoundPile.Models.Track = Backbone.Model.extend({
     } else {
       this.current_user_like = null;
     }
+    if (payload.current_user_share) {
+      this.current_user_share = new SoundPile.Models.Share(payload.current_user_share);
+      delete payload.current_user_share;
+    } else {
+      this.current_user_share = null;
+    }
     if (payload.audio_url) {
       //TODO: Remove global
       audio = this.audio = soundManager.createSound({
@@ -110,5 +116,38 @@ SoundPile.Models.Track = Backbone.Model.extend({
     });
     this.set("num_likes", this.get("num_likes") - 1);
     this.trigger("like:remove");
+  },
+
+  addShare: function () {
+    var share = new SoundPile.Models.Share({
+      owner_id: SoundPile.current_user.id,
+      track_id: this.id
+    });
+    share.save({}, {
+      success: function (share) {
+        this.current_user_share = share;
+      }.bind(this),
+      error: function (share) {
+        this.set("num_shares", this.get("num_shares") - 1);
+        this.trigger("share:remove");
+      }.bind(this),
+    });
+    this.set("num_shares", this.get("num_shares") + 1);
+    this.trigger("share:add");
+  },
+
+  removeShare: function () {
+    var share = this.current_user_share;
+    share.destroy({
+      success: function (share) {
+        this.current_user_share = null;
+      }.bind(this),
+      error: function (share) {
+        this.set("num_shares", this.get("num_shares") - 1);
+        this.trigger("share:add");
+      }.bind(this),
+    });
+    this.set("num_shares", this.get("num_shares") - 1);
+    this.trigger("share:remove");
   },
 });

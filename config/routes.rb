@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     resources :users,  only: [:index, :show]
     resources :tracks, only: [:show]
     resources :shares, only: [:index, :show, :create, :destroy]
-    resources :likes,  only: [:create, :destroy]
+    resources :likes,  only: [:index, :show, :create, :destroy]
   end
 end
