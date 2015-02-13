@@ -17,18 +17,7 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
     var inlinePlayerView = new SoundPile.Views.InlinePlayer({ model: this.model });
     this.addSubview(".inline-player", inlinePlayerView);
 
-    this.listenTo(this.model, "like:add", function () {
-      this.render();
-    });
-    this.listenTo(this.model, "like:remove", function () {
-      this.render();
-    });
-    this.listenTo(this.model, "share:add", function () {
-      this.render();
-    });
-    this.listenTo(this.model, "share:remove", function () {
-      this.render();
-    });
+    this.listenTo(this.model, "like:add like:remove share:add share:remove", this.render);
   },
 
   render: function () {
@@ -37,9 +26,11 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
 
     if (this.model.current_user_like) {
       this.$("button.like").addClass("selected");
+      this.$(".track-counts .likes").addClass("highlight");
     }
     if (this.model.current_user_share) {
       this.$("button.share").addClass("selected");
+      this.$(".track-counts .shares").addClass("highlight");
     }
 
     //player subview does most of the work
