@@ -54,6 +54,7 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
     } else {
       SoundPile.player.start({
         model: this.model,
+        referrer_url: "#" + Backbone.history.fragment,
         //collection: the playlist for the page
       });
     }

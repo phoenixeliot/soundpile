@@ -18,11 +18,12 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
 
   render: function () {
     var track = this.model;
-    this.$el.html(this.template({ track: this.model }));
+    this.$el.html(this.template({ track: this.model, referrer_url: this.referrer_url }));
     return this;
   },
 
   start: function (options) {
+    this.referrer_url = options.referrer_url;
     if (options.model === this.model) {
       this.play(); //already on this track, just play it
       return;
