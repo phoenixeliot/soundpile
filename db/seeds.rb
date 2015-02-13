@@ -59,9 +59,7 @@ tracks = Track.create!([
   {
     title: 'Empire Builder',
     owner: elliott,
-    audio_file_name: "empire_builder.mp3",
-    audio_content_type: "audio/mpeg",
-    audio_file_size: 3174213,
+    audio: File.new("./tmp/audio/empire builder.mp3"),
     cover_art: File.new("./tmp/art/concourse_bay.jpg"),
   },
   {
