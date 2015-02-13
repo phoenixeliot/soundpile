@@ -90,12 +90,13 @@ SoundPile.Models.Track = Backbone.Model.extend({
       user_id: SoundPile.current_user.id,
       track_id: this.id
     });
+    this.current_user_like = like;
     like.save({}, {
       success: function (like) {
-        this.current_user_like = like;
       }.bind(this),
       error: function (like) {
         this.set("num_likes", this.get("num_likes") - 1);
+        this.current_user_like = null;
         this.trigger("like:remove");
       }.bind(this),
     });
@@ -105,12 +106,13 @@ SoundPile.Models.Track = Backbone.Model.extend({
 
   removeLike: function () {
     var like = this.current_user_like;
+    this.current_user_like = null;
     like.destroy({
       success: function (like) {
-        this.current_user_like = null;
       }.bind(this),
       error: function (like) {
         this.set("num_likes", this.get("num_likes") + 1);
+        this.current_user_like = like;
         this.trigger("like:add");
       }.bind(this),
     });
@@ -123,12 +125,13 @@ SoundPile.Models.Track = Backbone.Model.extend({
       owner_id: SoundPile.current_user.id,
       track_id: this.id
     });
+    this.current_user_share = share;
     share.save({}, {
       success: function (share) {
-        this.current_user_share = share;
       }.bind(this),
       error: function (share) {
         this.set("num_shares", this.get("num_shares") - 1);
+        this.current_user_share = null;
         this.trigger("share:remove");
       }.bind(this),
     });
@@ -138,12 +141,13 @@ SoundPile.Models.Track = Backbone.Model.extend({
 
   removeShare: function () {
     var share = this.current_user_share;
+    this.current_user_share = null;
     share.destroy({
       success: function (share) {
-        this.current_user_share = null;
       }.bind(this),
       error: function (share) {
         this.set("num_shares", this.get("num_shares") + 1);
+        this.current_user_share = share;
         this.trigger("share:add");
       }.bind(this),
     });
