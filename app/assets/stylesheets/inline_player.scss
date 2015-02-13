@@ -76,30 +76,3 @@
     margin-left: 7px;
   }
 }
-
-
-.position-bar-container {
-  position: relative;
-  display: block;
-  clear: both;
-  height: 25px;
-  background-color: red;
-  width: 579px;
-
-  .position-bar-loading {
-    //TODO: Fix position percent not to be relative to this
-    position: absolute;
-    display: block;
-    width: 0%;
-    height: 100%;
-    background-color: orange;
-  }
-
-  .position-bar {
-    position: absolute;
-    display: block;
-    width: 0%;
-    height: 100%;
-    background-color: blue;
-  }
-}
