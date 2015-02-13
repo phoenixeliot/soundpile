@@ -21,9 +21,7 @@ tracks = Track.create!([
     audio_file_name: 'sky_palaces.mp3', #might want to rename this
     audio_content_type: "audio/mpeg",
     audio_file_size: 4707575,
-    cover_art_file_name: "hello.jpg",
-    cover_art_content_type: "image/jpeg",
-    cover_art_file_size: 80784,
+    cover_art: File.new("./tmp/art/hello.jpg"),
   },
   {
     title: 'lontalius - i guess itsss (Wind Fish Edit)',
@@ -31,9 +29,7 @@ tracks = Track.create!([
     audio_file_name: 'i_guess_itsss.mp3',
     audio_content_type: "audio/mpeg",
     audio_file_size: 2784861,
-    cover_art_file_name: "i_guess_itsss.jpg",
-    cover_art_content_type: "image/jpeg",
-    cover_art_file_size: 37939,
+    cover_art: File.new("./tmp/art/i_guess_itsss.jpg"),
   },
   {
     title: 'Airloop',
@@ -41,9 +37,7 @@ tracks = Track.create!([
     audio_file_name: 'LANDR-airloop.mp3',
     audio_content_type: "audio/mpeg",
     audio_file_size: 5309543,
-    cover_art_file_name: "airloop.jpg",
-    cover_art_content_type: "image/jpeg",
-    cover_art_file_size: 285799,
+    cover_art: File.new("./tmp/art/airloop.jpg"),
   },
   {
     title: 'Adelyn Rose - It Means Shadow (Wind Fish Remix)',
@@ -51,25 +45,26 @@ tracks = Track.create!([
     audio_file_name: 'it_means_shadow.mp3',
     audio_content_type: "audio/mpeg",
     audio_file_size: 4610337,
-    cover_art_file_name: "it_means_shadow.jpg",
-    cover_art_content_type: "image/jpeg",
-    cover_art_file_size: 56229,
-  }
+    cover_art: File.new("./tmp/art/it_means_shadow.jpg"),
+  },
+  {
+    title: 'Concourse Bay Ft. Phoenix',
+    owner: elliott,
+    cover_art: File.new("./tmp/art/concourse_bay.jpg"),
+  },
+  {
+    title: 'Empire Builder',
+    owner: elliott,
+    cover_art: File.new("./tmp/art/concourse_bay.jpg"),
+  },
+  {
+    title: 'Concourse Bay Ft. Phoenix',
+    owner: elliott,
+    cover_art: File.new("./tmp/art/concourse_bay.jpg"),
+  },
   ])
 
 shares = Share.create!([
-  {
-    owner: elliott,
-    track: tracks[1]
-  },
-  {
-    owner: elliott,
-    track: tracks[2]
-  },
-  {
-    owner: elliott,
-    track: tracks[3]
-  },
   {
     owner: peter,
     track: tracks[0]
