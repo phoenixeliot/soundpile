@@ -17,9 +17,11 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
 
     this.listenTo(this.model, "like:add", function () {
       this.$("button.like").addClass("selected");
+      this.render();
     });
     this.listenTo(this.model, "like:remove", function () {
       this.$("button.like").removeClass("selected");
+      this.render();
     });
   },
 
