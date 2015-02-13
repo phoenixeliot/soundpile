@@ -82,10 +82,14 @@ SoundPile.Models.Track = Backbone.Model.extend({
     like.save({}, {
       success: function (like) {
         this.current_user_like = like;
-        this.set("num_likes", this.get("num_likes") + 1);
-        this.trigger("like:add");
-      }.bind(this)
+      }.bind(this),
+      error: function (like) {
+        this.set("num_likes", this.get("num_likes") - 1);
+        this.trigger("like:remove");
+      }.bind(this),
     });
+    this.set("num_likes", this.get("num_likes") + 1);
+    this.trigger("like:add");
   },
 
   removeLike: function () {
@@ -93,9 +97,13 @@ SoundPile.Models.Track = Backbone.Model.extend({
     like.destroy({
       success: function (like) {
         this.current_user_like = null;
+      }.bind(this),
+      error: function (like) {
         this.set("num_likes", this.get("num_likes") - 1);
-        this.trigger("like:remove");
-      }.bind(this)
+        this.trigger("like:add");
+      }.bind(this),
     });
+    this.set("num_likes", this.get("num_likes") - 1);
+    this.trigger("like:remove");
   },
 });
