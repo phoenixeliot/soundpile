@@ -14,7 +14,6 @@ class Api::LikesController < ApplicationController
     render json: like
   end
 
-
   private
     def like_params
       params.require(:like).permit(:user_id, :track_id)
