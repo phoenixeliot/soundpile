@@ -25,6 +25,11 @@
       <% if logged_in? %>
       <ul class="nav navbar-nav navbar-right pull-right">
         <li>
+          <a href="#/users/<%= current_user.id %>">
+            <%= current_user.display_name %>
+          </a>
+        </li>
+        <li>
           <a href="<%= signout_url %>">Sign out</a>
         </li>
       </ul>
