@@ -50,15 +50,21 @@ tracks = Track.create!([
   {
     title: 'Concourse Bay Ft. Phoenix',
     owner: elliott,
+    audio_file_name: "concourse_bay.mp3",
+    audio_content_type: "audio/mpeg",
+    audio_file_size: 2226292,
     cover_art: File.new("./tmp/art/concourse_bay.jpg"),
   },
   {
     title: 'Empire Builder',
     owner: elliott,
+    audio_file_name: "empire_builder.mp3",
+    audio_content_type: "audio/mpeg",
+    audio_file_size: 3174213,
     cover_art: File.new("./tmp/art/concourse_bay.jpg"),
   },
   {
-    title: 'Concourse Bay Ft. Phoenix',
+    title: 'Lonely Bones',
     owner: elliott,
     cover_art: File.new("./tmp/art/concourse_bay.jpg"),
   },
