@@ -7,6 +7,8 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
     this.$(".play-btn").hide();
     this.listenTo(this.model, 'pause', this.showPlayButton);
     this.listenTo(this.model, 'play resume', this.showPauseButton);
+    this.listenTo(this.model, 'pause', this.showPlayButton);
+    this.listenTo(this.model, 'play resume', this.showPauseButton);
   },
 
   events: {
@@ -66,6 +68,11 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
     event && event.preventDefault();
     //TODO: Manage playlist stuff
     console.log("TODO: Do something!");
+  },
+
+  toggleMute: function (options) {
+    event && event.preventDefault();
+    this.model.audio.toggleMute();
   },
 
 
