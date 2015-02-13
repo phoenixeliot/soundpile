@@ -6,6 +6,11 @@ SoundPile.Models.Track = Backbone.Model.extend({
       //Create placeholders for when player has a null track
       this.audio = new Audio();
     }
+    //stub data for waveform
+    this.set("peakData", []);
+    for (var i = 0; i < 192; i++) {
+      this.get("peakData")[i] = (Math.random() * 28) + 8;
+    }
   },
 
   parse: function (payload) {
