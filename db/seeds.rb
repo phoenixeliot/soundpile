@@ -9,10 +9,11 @@
 users = User.create!([
   { username: 'peter', password: 'eeeeee', display_name: 'Felix' },
   { username: 'elliott', password: 'ffffff', display_name: 'Wind Fish' },
+  { username: 'sloslylove', password: 'gggggg' },
   { username: 'guest', password: 'password', display_name: 'Guest' },
 ])
 
-peter, elliott, guest, _ = users
+peter, elliott, sloslylove, guest, _ = users
 
 tracks = Track.create!([
   {
@@ -66,7 +67,56 @@ tracks = Track.create!([
   {
     title: 'Lonely Bones',
     owner: elliott,
+    audio: File.new("./tmp/audio/lonely bones.mp3"),
     cover_art: File.new("./tmp/art/concourse_bay.jpg"),
+  },
+  {
+    title: 'Spacetime',
+    owner: elliott,
+    audio: File.new("./tmp/audio/spacetime.mp3"),
+    cover_art: File.new("./tmp/art/poozer.jpg"),
+  },
+  {
+    title: 'Variation',
+    owner: elliott,
+    audio: File.new("./tmp/audio/variation.mp3"),
+    cover_art: File.new("./tmp/art/poozer.jpg"),
+  },
+  {
+    title: 'Vibrate',
+    owner: elliott,
+    audio: File.new("./tmp/audio/vibrate.mp3"),
+    cover_art: File.new("./tmp/art/poozer.jpg"),
+  },
+  {
+    title: 'Sounds',
+    owner: elliott,
+    audio: File.new("./tmp/audio/sounds.mp3"),
+    cover_art: File.new("./tmp/art/poozer.jpg"),
+  },
+  {
+    title: 'River',
+    owner: elliott,
+    audio: File.new("./tmp/audio/river.mp3"),
+    cover_art: File.new("./tmp/art/poozer.jpg"),
+  },
+  {
+    title: 'Feels',
+    owner: sloslylove,
+    audio: File.new("./tmp/audio/feels.mp3"),
+    cover_art: File.new("./tmp/art/the_haunted.jpg"),
+  },
+  {
+    title: "Can't Let Go",
+    owner: sloslylove,
+    audio: File.new("./tmp/audio/cant_let_go.mp3"),
+    cover_art: File.new("./tmp/art/the_haunted.jpg"),
+  },
+  {
+    title: 'You And I',
+    owner: sloslylove,
+    audio: File.new("./tmp/audio/you_and_i.mp3"),
+    cover_art: File.new("./tmp/art/the_haunted.jpg"),
   },
   ])
 
@@ -101,5 +151,13 @@ likes = Like.create!([
   {
     user: guest,
     track: tracks[1]
+  },
+  {
+    user: sloslylove,
+    track: tracks[1]
+  },
+  {
+    user: sloslylove,
+    track: tracks[3]
   },
 ])
