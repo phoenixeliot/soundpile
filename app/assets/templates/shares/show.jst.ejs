@@ -1,7 +1,12 @@
-<% if(share.get('is_reshared')) { %>
-  Shared by: <%= share.escape('owner_name') %>
-<% } %>
-
 <div class="track-item">
 
+</div>
+
+<div class="reshare-user">
+  <% if(share.get('is_reshared')) { %>
+    <a href="#/users/<%= share.escape('owner_id') %>">
+      <div class="glyphicon glyphicon-retweet"></div>
+      <%= share.escape('owner_name') %>
+    </a>
+  <% } %>
 </div>

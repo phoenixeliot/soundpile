@@ -1,4 +1,5 @@
 SoundPile.Views.ShareItem = Backbone.CompositeView.extend({
+  className: "share-item",
   template: JST["shares/show"],
 
   initialize: function () {
