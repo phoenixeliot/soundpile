@@ -16,6 +16,7 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
     "click .pause-btn": "pause",
     "click .prev-btn": "previous",
     "click .next-btn": "next",
+    "click .toggle-repeat": "toggleRepeat",
     "click .toggle-mute": "toggleMute",
   },
 
@@ -67,7 +68,12 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
   next: function (event) {
     event && event.preventDefault();
     //TODO: Manage playlist stuff
-    console.log("TODO: Do something!");
+    console.log("TODO: Implement playlists");
+  },
+
+  toggleRepeat: function (event) {
+    event && event.preventDefault();
+    console.log("TODO: Implement track repeating");
   },
 
   toggleMute: function (options) {
