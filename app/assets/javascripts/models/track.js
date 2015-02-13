@@ -110,7 +110,7 @@ SoundPile.Models.Track = Backbone.Model.extend({
         this.current_user_like = null;
       }.bind(this),
       error: function (like) {
-        this.set("num_likes", this.get("num_likes") - 1);
+        this.set("num_likes", this.get("num_likes") + 1);
         this.trigger("like:add");
       }.bind(this),
     });
@@ -143,7 +143,7 @@ SoundPile.Models.Track = Backbone.Model.extend({
         this.current_user_share = null;
       }.bind(this),
       error: function (share) {
-        this.set("num_shares", this.get("num_shares") - 1);
+        this.set("num_shares", this.get("num_shares") + 1);
         this.trigger("share:add");
       }.bind(this),
     });
