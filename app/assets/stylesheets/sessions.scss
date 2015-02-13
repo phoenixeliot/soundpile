@@ -15,7 +15,6 @@ form.credentials {
 
   .username, .password, .submit {
     @extend .form-group;
-    @extend .row;
   }
 
   .username, .password {
@@ -24,20 +23,46 @@ form.credentials {
       @extend .control-label;
     }
 
-    input {
+    div {
       @include make-sm-column(8);
-      @extend .form-control;
+      input {
+        @extend .form-control;
+      }
     }
   }
 
-  .submit {
-    input {
-      @include make-sm-column(4);
-      @include make-sm-column-offset(4);
+  .submit input {
+    @include make-sm-column(2);
+    /* @include make-sm-column-offset(4); */
+    @extend .form-control;
+    @extend .btn;
+    @extend .btn-success;
+  }
+}
 
+.or-separator {
+  @extend .form-group;
+  @include make-sm-column(12);
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+form.guest-credentials {
+  @extend .form-horizontal;
+  @include make-sm-column(4);
+  @include make-sm-column-offset(4);
+
+  input.guest-hidden-input {
+    display: none;
+  }
+
+  .submit-guest {
+    @extend .form-group;
+    input.btn-submit-guest {
       @extend .form-control;
       @extend .btn;
-      @extend .btn-success;
+      @extend .btn-danger;
     }
   }
 }
@@ -45,6 +70,7 @@ form.credentials {
 .already-signed-in {
   @include make-sm-column(4);
   @include make-sm-column-offset(4);
+  text-align: center;
 
   padding-top: 30%;
 }

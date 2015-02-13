@@ -1,5 +1,5 @@
 <% if current_user.nil? %>
-
+<div class="container">
   <form class="credentials" action="<%= signin_url %>" method="post">
     <h2>Sign in!</h2>
 
@@ -7,19 +7,35 @@
 
     <div class="username">
       <label for="user_username">Username:</label>
-      <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>">
+      <div>
+        <input type="text" id="user_username" name="user[username]" value="<%= @user.username %>">
+      </div>
     </div>
 
     <div class="password">
       <label for="user_password">Password:</label>
-      <input type="password" id="user_password" name="user[password]">
+      <div>
+        <input type="password" id="user_password" name="user[password]">
+      </div>
     </div>
 
     <div class="submit">
-      <input type="submit" value="Sign In">
+      <input type="submit" value="Sign in">
     </div>
   </form>
 
+  <div class="or-separator">—or—</div>
+
+  <form class="guest-credentials" action="<%= signin_url %>" method="post">
+    <input class="guest-hidden-input" type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input class="guest-hidden-input" type="text" id="user_username" name="user[username]" value="guest">
+    <input class="guest-hidden-input" type="password" id="user_password" name="user[password]" value="password">
+
+    <div class="submit-guest">
+      <input class="btn-submit-guest" type="submit" value="Sign in as guest">
+    </div>
+  </form>
+</div>
 <% else %>
 
   <div class="already-signed-in">
