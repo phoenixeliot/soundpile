@@ -14,6 +14,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "header";
 @import "sessions";
 @import "inline_player";
 @import "persistent_player";
@@ -27,7 +28,7 @@ body {
 
 #main {
   position: relative;
-  max-width: 960px;
+  max-width: 750px;
   padding: 0 20px;
   margin: auto;
 }
