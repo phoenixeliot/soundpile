@@ -18,6 +18,18 @@
   </div>
 
   <div class="submit">
-    <input type="submit" value="Sign Up">
+    <input type="submit" value="Sign up">
+  </div>
+</form>
+
+<div class="or-separator">—or—</div>
+
+<form class="guest-credentials" action="<%= signin_url %>" method="post">
+  <input class="guest-hidden-input" type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input class="guest-hidden-input" type="text" id="user_username" name="user[username]" value="peter">
+  <input class="guest-hidden-input" type="password" id="user_password" name="user[password]" value="eeeeee">
+
+  <div class="submit-guest">
+    <input class="btn-submit-guest" type="submit" value="Sign in as guest">
   </div>
 </form>
