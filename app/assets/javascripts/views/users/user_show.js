@@ -3,12 +3,12 @@ SoundPile.Views.UserShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     var user = this.model;
-    this.addSharesIndex(user.shares());
+    this.addPostsIndex(user.posts());
   },
 
-  addSharesIndex: function (shares) {
-    var sharesIndex = new SoundPile.Views.SharesIndex({ collection: shares });
-    this.addSubview('.shares-index', sharesIndex);
+  addPostsIndex: function (posts) {
+    var postsIndex = new SoundPile.Views.PostsIndex({ collection: posts });
+    this.addSubview('.posts-index', postsIndex);
   },
 
   render: function () {

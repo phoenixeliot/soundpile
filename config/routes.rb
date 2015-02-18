@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'current_user', to: 'users#current'
     resources :users,  only: [:index, :show]
     resources :tracks, only: [:show]
-    resources :shares, only: [:index, :show, :create, :destroy]
+    resources :posts, only: [:index, :show, :create, :destroy]
     resources :likes,  only: [:index, :show, :create, :destroy]
   end
 end

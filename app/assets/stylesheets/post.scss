@@ -1,0 +1,11 @@
+.post-item {
+  position: relative;
+}
+
+//TODO: Completely replace this hack. Maybe even get rid of PostView entirely?
+.repost-user {
+  font-size: 12px;
+  position: absolute;
+  top: 8px;
+  left: 160px;
+}

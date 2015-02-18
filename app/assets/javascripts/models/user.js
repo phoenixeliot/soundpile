@@ -2,19 +2,19 @@ SoundPile.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users',
 
   parse: function (payload) {
-    if (payload.shares) {
-      this.shares().set(payload.shares, { parse: true });
+    if (payload.posts) {
+      this.posts().set(payload.posts, { parse: true });
     }
 
-    delete payload.shares;
+    delete payload.posts;
     return payload;
   },
 
-  shares: function () {
-    if(!this._shares) {
-      this._shares = new SoundPile.Collections.Shares([], { parse: true });
+  posts: function () {
+    if(!this._posts) {
+      this._posts = new SoundPile.Collections.Posts([], { parse: true });
     }
-    return this._shares;
+    return this._posts;
   }
 });
 

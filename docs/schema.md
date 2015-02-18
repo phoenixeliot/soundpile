@@ -24,7 +24,7 @@ id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users)
 track_id    | string    | not null, foreign key (references tracks)
 
-## shares
+## posts
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

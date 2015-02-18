@@ -11,8 +11,8 @@ class Track < ActiveRecord::Base
 
   after_initialize :ensure_artist_name
   belongs_to :owner, class_name: 'User'
-  has_many :shares
-  after_create :create_share
+  has_many :posts
+  after_create :create_post
 
   has_many :likes
   has_many :likers, through: :likes, source: :user #Might want to rename this
@@ -26,7 +26,7 @@ class Track < ActiveRecord::Base
       self.artist ||= self.owner.display_name
     end
 
-    def create_share
-      Share.create(owner: self.owner, track: self)
+    def create_post
+      Post.create(owner: self.owner, track: self)
     end
 end

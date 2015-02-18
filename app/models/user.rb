@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :owned_tracks, class_name: 'Track', foreign_key: :owner_id
-  has_many :shares, foreign_key: :owner_id
-  has_many :shared_tracks, through: :shares, source: :track
+  has_many :posts, foreign_key: :owner_id
+  has_many :posted_tracks, through: :posts, source: :track
 
   has_many :likes
   has_many :liked_tracks, through: :likes, source: :track

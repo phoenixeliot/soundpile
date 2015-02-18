@@ -1,9 +1,9 @@
-SoundPile.Views.SharesIndex = Backbone.CompositeView.extend({
-  template: JST["shares/index"],
+SoundPile.Views.PostsIndex = Backbone.CompositeView.extend({
+  template: JST["posts/index"],
 
   initialize: function (options) {
-    this.collection.each(this.addShareItem.bind(this));
-    this.listenTo(this.collection, 'add', this.addShareItem);
+    this.collection.each(this.addPostItem.bind(this));
+    this.listenTo(this.collection, 'add', this.addPostItem);
     this.listenTo(this.collection, "remove", function (item) {
       //TODO: Remove the item from the view
       console.log("removed one!");
@@ -11,9 +11,9 @@ SoundPile.Views.SharesIndex = Backbone.CompositeView.extend({
     })
   },
 
-  addShareItem: function (share) {
-    var shareItemView = new SoundPile.Views.ShareItem({ model: share });
-    this.addSubview('.shares-list', shareItemView);
+  addPostItem: function (post) {
+    var postItemView = new SoundPile.Views.PostItem({ model: post });
+    this.addSubview('.posts-list', postItemView);
   },
 
   render: function () {

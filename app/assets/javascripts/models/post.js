@@ -1,5 +1,5 @@
-SoundPile.Models.Share = Backbone.Model.extend({
-  urlRoot: '/api/shares',
+SoundPile.Models.Post = Backbone.Model.extend({
+  urlRoot: '/api/posts',
 
   parse: function (payload) {
     if (payload.track) {

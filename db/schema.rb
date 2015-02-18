@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150211172530) do
   add_index "likes", ["track_id"], name: "index_likes_on_track_id", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
-  create_table "shares", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.integer  "track_id"
     t.integer  "owner_id"
     t.datetime "created_at", null: false

@@ -9,15 +9,15 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
   events: {
     "click button.like:not(.selected)": "addLike",
     "click button.like.selected": "removeLike",
-    "click button.share:not(.selected)": "addShare",
-    "click button.share.selected": "removeShare",
+    "click button.post:not(.selected)": "addPost",
+    "click button.post.selected": "removePost",
   },
 
   initialize: function () {
     var inlinePlayerView = new SoundPile.Views.InlinePlayer({ model: this.model });
     this.addSubview(".inline-player", inlinePlayerView);
 
-    this.listenTo(this.model, "like:add like:remove share:add share:remove", this.render);
+    this.listenTo(this.model, "like:add like:remove post:add post:remove", this.render);
   },
 
   render: function () {
@@ -28,9 +28,9 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
       this.$("button.like").addClass("selected");
       this.$(".track-counts .likes").addClass("highlight");
     }
-    if (this.model.current_user_share) {
-      this.$("button.share").addClass("selected");
-      this.$(".track-counts .shares").addClass("highlight");
+    if (this.model.current_user_post) {
+      this.$("button.post").addClass("selected");
+      this.$(".track-counts .posts").addClass("highlight");
     }
 
     //player subview does most of the work
@@ -52,17 +52,17 @@ SoundPile.Views.TrackItem = Backbone.CompositeView.extend({
     }
   },
 
-  addShare: function (event) {
+  addPost: function (event) {
     event.preventDefault();
     if (SoundPile.current_user.enforceLogin()) {
-      this.model.addShare();
+      this.model.addPost();
     }
   },
 
-  removeShare: function (event) {
+  removePost: function (event) {
     event.preventDefault();
     if (SoundPile.current_user.enforceLogin()) {
-      this.model.removeShare();
+      this.model.removePost();
     }
   },
 });

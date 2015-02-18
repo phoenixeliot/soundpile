@@ -20,11 +20,11 @@ SoundPile.Models.Track = Backbone.Model.extend({
     } else {
       this.current_user_like = null;
     }
-    if (payload.current_user_share) {
-      this.current_user_share = new SoundPile.Models.Share(payload.current_user_share);
-      delete payload.current_user_share;
+    if (payload.current_user_post) {
+      this.current_user_post = new SoundPile.Models.Post(payload.current_user_post);
+      delete payload.current_user_post;
     } else {
-      this.current_user_share = null;
+      this.current_user_post = null;
     }
     if (payload.audio_url) {
       //TODO: Remove global
@@ -120,38 +120,38 @@ SoundPile.Models.Track = Backbone.Model.extend({
     this.trigger("like:remove");
   },
 
-  addShare: function () {
-    var share = new SoundPile.Models.Share({
+  addPost: function () {
+    var post = new SoundPile.Models.Post({
       owner_id: SoundPile.current_user.id,
       track_id: this.id
     });
-    this.current_user_share = share;
-    share.save({}, {
-      success: function (share) {
+    this.current_user_post = post;
+    post.save({}, {
+      success: function (post) {
       }.bind(this),
-      error: function (share) {
-        this.set("num_shares", this.get("num_shares") - 1);
-        this.current_user_share = null;
-        this.trigger("share:remove");
+      error: function (post) {
+        this.set("num_posts", this.get("num_posts") - 1);
+        this.current_user_post = null;
+        this.trigger("post:remove");
       }.bind(this),
     });
-    this.set("num_shares", this.get("num_shares") + 1);
-    this.trigger("share:add");
+    this.set("num_posts", this.get("num_posts") + 1);
+    this.trigger("post:add");
   },
 
-  removeShare: function () {
-    var share = this.current_user_share;
-    this.current_user_share = null;
-    share.destroy({
-      success: function (share) {
+  removePost: function () {
+    var post = this.current_user_post;
+    this.current_user_post = null;
+    post.destroy({
+      success: function (post) {
       }.bind(this),
-      error: function (share) {
-        this.set("num_shares", this.get("num_shares") + 1);
-        this.current_user_share = share;
-        this.trigger("share:add");
+      error: function (post) {
+        this.set("num_posts", this.get("num_posts") + 1);
+        this.current_user_post = post;
+        this.trigger("post:add");
       }.bind(this),
     });
-    this.set("num_shares", this.get("num_shares") - 1);
-    this.trigger("share:remove");
+    this.set("num_posts", this.get("num_posts") - 1);
+    this.trigger("post:remove");
   },
 });

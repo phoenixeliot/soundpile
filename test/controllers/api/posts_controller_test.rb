@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::SharesControllerTest < ActionController::TestCase
+class Api::PostsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

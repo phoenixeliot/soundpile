@@ -1,0 +1,12 @@
+<div class="track-item">
+
+</div>
+
+<div class="repost-user">
+  <% if(post.get('is_reposted')) { %>
+    <a href="#/users/<%= post.escape('owner_id') %>">
+      <div class="glyphicon glyphicon-retweet"></div>
+      <%= post.escape('owner_name') %>
+    </a>
+  <% } %>
+</div>

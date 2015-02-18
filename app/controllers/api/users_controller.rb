@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @include_shares = true
+    @include_posts = true
     render :show
   end
 

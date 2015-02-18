@@ -18,10 +18,10 @@ SoundPile.Views.Main = Backbone.CompositeView.extend({
   },
 
   index: function () {
-    var shares = new SoundPile.Collections.Shares();
-    var indexView = new SoundPile.Views.SharesIndex({ collection: shares });
-    shares.fetch({
-      success: function (shares) {
+    var posts = new SoundPile.Collections.Posts();
+    var indexView = new SoundPile.Views.PostsIndex({ collection: posts });
+    posts.fetch({
+      success: function (posts) {
         this.replaceSubviews(".page", indexView);
       }.bind(this)
     });

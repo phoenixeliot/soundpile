@@ -168,7 +168,7 @@ tracks = Track.create!([
   },
   ])
 
-shares = Share.create!([
+posts = Post.create!([
   { owner: peter, track: tracks[8] },
   { owner: peter, track: tracks[5] },
   { owner: peter, track: tracks[2] },

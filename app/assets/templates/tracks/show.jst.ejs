@@ -5,7 +5,7 @@
 <div class="track-footer">
   <div class="track-buttons">
     <li><button class="like"><span class="glyphicon glyphicon-heart"></span></button></li>
-    <li><button class="share"><span class="glyphicon glyphicon-retweet"></span></button></li>
+    <li><button class="post"><span class="glyphicon glyphicon-retweet"></span></button></li>
   </div>
 
   <div class="track-counts">
@@ -19,9 +19,9 @@
       <span class="num_likes"><%= track.escape("num_likes") %></span>
     </li>
 
-    <li class="shares">
+    <li class="posts">
       <span class="glyphicon glyphicon-retweet"></span>
-      <span class="num_shares"><%= track.escape("num_shares") %></span>
+      <span class="num_posts"><%= track.escape("num_posts") %></span>
     </li>
   </div>
 </div>

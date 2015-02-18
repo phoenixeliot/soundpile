@@ -11,7 +11,7 @@
 ### Views
 * songs/show.json.jbuilder
 * songs/index.json.jbuilder
-* songs/shared.json.jbuilder
+* songs/posted.json.jbuilder
 
 ## Backbone
 ### Models
