@@ -9,7 +9,7 @@ SoundPile.Models.Track = Backbone.Model.extend({
     //stub data for waveform
     this.set("peakData", []);
     for (var i = 0; i < 192; i++) {
-      this.get("peakData")[i] = (Math.random() * 28) + 8;
+      this.get("peakData")[i] = Math.floor(Math.random() * 28) + 8;
     }
   },
 
