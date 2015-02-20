@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  force_ssl if: :ssl_configured?
-
   def show
     @user = User.find(params[:id])
     render :show
