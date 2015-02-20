@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  force_ssl if: :ssl_configured?
+  #Might need this everywhere when I move to backbone?
+
   def new
     @user = User.new
     render :new

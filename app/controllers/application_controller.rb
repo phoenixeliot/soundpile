@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     current_user.reset_session_token! if current_user
     session[:token] = nil
   end
+
+  def ssl_configured?
+    Rails.env.production?
+  end
 end
