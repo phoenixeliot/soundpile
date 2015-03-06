@@ -1,0 +1,17 @@
+.likes-panel {
+  .header {
+    .total-likes {
+      float: left;
+    }
+    > a {
+      float: right;
+    }
+  }
+  .likes-list {
+    .like-item {
+      height: 60px;
+      padding: 10px 0;
+    }
+    
+  }
+}
