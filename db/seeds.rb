@@ -172,12 +172,12 @@ posts = Post.create!([
   { owner: peter, track: tracks[8] },
   { owner: peter, track: tracks[5] },
   { owner: peter, track: tracks[2] },
-  { owner: peter, track: tracks[3] },
-  { owner: peter, track: tracks[10] },
-  { owner: peter, track: tracks[13] },
   { owner: sloslylove, track: tracks[0] },
   { owner: sloslylove, track: tracks[1] },
   { owner: sloslylove, track: tracks[6] },
+  { owner: peter, track: tracks[10] },
+  { owner: peter, track: tracks[0] },
+  { owner: peter, track: tracks[3] },
 ])
 
 likes = Like.create!([
