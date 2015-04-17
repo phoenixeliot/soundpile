@@ -42,7 +42,7 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
 
   //TODO: Should this be the same function for click handling and code calls?
   play: function (event) {
-    event && event.preventDefault();
+    if(event) event.preventDefault();
     if (this.model.audio.play()) {
       // Don't toggle button if there was nothing to play
       this.$(".play-btn").hide();
@@ -52,7 +52,7 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
   },
 
   pause: function (event) {
-    event && event.preventDefault();
+    if(event) event.preventDefault();
     this.model.audio.pause();
     this.$(".play-btn").show();
     this.$(".pause-btn").hide();
@@ -60,24 +60,24 @@ SoundPile.Views.PersistentPlayer = Backbone.CompositeView.extend({
   },
 
   previous: function (event) {
-    event && event.preventDefault();
+    if(event) event.preventDefault();
     //TODO: Manage playlist stuff
     this.model.setPosition(0);
   },
 
   next: function (event) {
-    event && event.preventDefault();
+    if(event) event.preventDefault();
     //TODO: Manage playlist stuff
     console.log("TODO: Implement playlists");
   },
 
   toggleRepeat: function (event) {
-    event && event.preventDefault();
+    if(event) event.preventDefault();
     console.log("TODO: Implement track repeating");
   },
 
   toggleMute: function (options) {
-    event && event.preventDefault();
+    if(event) event.preventDefault();
     this.model.audio.toggleMute();
   },
 
