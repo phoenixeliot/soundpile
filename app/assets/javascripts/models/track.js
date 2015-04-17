@@ -28,7 +28,7 @@ SoundPile.Models.Track = Backbone.Model.extend({
     }
     if (payload.audio_url) {
       //TODO: Remove global
-      audio = this.audio = soundManager.createSound({
+      this.audio = soundManager.createSound({
         id: payload.id,
         url: payload.audio_url,
         whileplaying: function () {
