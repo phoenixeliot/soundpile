@@ -80,4 +80,13 @@
     /* width: 20px; */
     //TODO: Make play button a little larger
   }
+
+  .position-bar {
+    background-color: #f50;
+    
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
 }

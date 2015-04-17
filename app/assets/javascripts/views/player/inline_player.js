@@ -38,6 +38,7 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   },
 
   renderPosition: function () {
+    console.log(this.model === SoundPile.player.model);
     var fractionalPosition = this.model.position() / this.model.duration();
     var percentPosition = (fractionalPosition * 100) + "%";
     this.$(".position-bar").css("width", percentPosition);
@@ -48,7 +49,7 @@ SoundPile.Views.InlinePlayer = Backbone.CompositeView.extend({
   },
 
   play: function (event) {
-    event && event.preventDefault();
+    if (event) event.preventDefault();
     if(this.model === SoundPile.player.model) {
       SoundPile.player.play();
     } else {
