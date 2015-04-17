@@ -83,7 +83,13 @@
 
   .position-bar {
     background-color: #f50;
-    
+  }
+
+  .position-bar-loading {
+    background-color: #999;
+  }
+
+  .position-bar, .position-bar-loading {
     height: 3px;
     position: absolute;
     left: 0;
